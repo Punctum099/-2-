@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="/css/buttons.css" rel="stylesheet"/>
+<style type="text/css">
+	.a{
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#board{
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 3%;
+		width: 55%;
+	}
+	.none{
+		text-decoration:none;
+		color: black;
+	}
+	.none:hover{
+		text-decoration:none;
+		color: black;
+		font-weight: bold;
+	}
+	#Notice:hover{
+		text-decoration: underline;
+	}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+	<table id="board" class="table table-hover" style="width: 85%">
+		<tr style="background-color: Gainsboro;">
+			<td>번호</td>
+			<td>제목</td>
+			<td>글쓴이</td>
+			<td>조회수</td>
+			<td>게시 시간</td>
+		<tr>
+		<tr th:if="${dto.listType == 'Notice'}" th:each="dto:${list}">
+			<td><b th:text="${dto.seq}">번호</b></td>
+			<td><b><a th:href="@{/content(seq=${dto.seq}, page=${cri.page}, perPageNum=${cri.perPageNum})}" th:text="${dto.title}" class="none" id="Notice">제목</a></b></td>
+			<td><b th:text="${dto.author}">글쓴이</b></td>
+			<td><b th:text="${dto.hit}">조회수</b></td>
+			<td><b th:text="${#dates.format(dto.time, 'yyyy/MM/dd')}">게시 시간</b></td>
+		<tr>
+		<tr th:if="${dto.listType == 'Normal'}" th:each="dto:${list}">
+			<td th:text="${dto.seq}">번호</td>
+			<td><a th:href="@{/content(seq=${dto.seq}, page=${cri.page}, perPageNum=${cri.perPageNum})}" th:text="${dto.title}" class="none">제목</a></td>
+			<td th:text="${dto.author}">글쓴이</td>
+			<td th:text="${dto.hit}">조회수</td>
+			<td th:text="${#dates.format(dto.time, 'yyyy/MM/dd')}">게시 시간</td>
+		<tr>
+		<tr th:if="${list == NULL || list == '' || list == 'empty'}">
+			<td colspan=5>글이 없습니다.</td>
+		</tr>
+	</table>
+	
+	<input type="button" value="글작성" onClick="location.href='/write_view'" class="btn btn-sm btn-success" style="margin-left: 10%">
+	
+	<div class="box-footer clearfix a" style="margin-top: -23px">
+		<ul class="pagination pagination-sm">
+			<li th:if="${pageMaker.prev} == true">
+				<a href="/list"
+				th:href="@{/list(page=${pageMaker.startPage}-1,perPageNum=${pageMaker.cri.perPageNum})}">&laquo;</a>
+			</li>
+			<li
+				th:each="idx,iterStat : ${#numbers.sequence(pageMaker.startPage,pageMaker.endPage)}"
+				th:classappend="${pageMaker.cri.page} == ${idx} ? active : null">
+				<a href="/list"
+				th:href="@{/list(page=${idx},perPageNum=${pageMaker.cri.perPageNum})}"
+				th:text="${idx}">1</a>
+			</li>
+			<li th:if="${pageMaker.next} == true and ${pageMaker.endPage > 0}">
+				<a href="/list"
+				th:href="@{/list(page=${pageMaker.endPage}+1,perPageNum=${pageMaker.cri.perPageNum})}">&raquo;</a>
+			</li>
+		</ul>
+	</div>
+	
+		<form method="GET" action="/list" class="a">
+      		<SELECT name="option">
+		        <OPTION value='title' th:if="${cri.option} == 'title'" th:attr="selected=selected">제목</OPTION>
+		        <OPTION value='title' th:unless="${cri.option} == 'title'">제목</OPTION>
+		        
+		        <OPTION value='contents' th:if="${cri.option} == 'contents'" th:attr="selected=selected">내용</OPTION>
+		        <OPTION value='contents' th:unless="${cri.option} == 'contents'">내용</OPTION>
+		        
+		        <OPTION value='author' th:if="${cri.option} == 'author'" th:attr="selected=selected">이름</OPTION>
+		        <OPTION value='author' th:unless="${cri.option} == 'author'">이름</OPTION>
+		        
+		        <OPTION value='title_content' th:if="${cri.option} == 'title_content'" th:attr="selected=selected">제목+내용</OPTION>
+		        <OPTION value='title_content' th:unless="${cri.option} == 'title_content'">제목+내용</OPTION>
+		    </SELECT>
+			<input type="text" name="search" th:value="${cri.search}" placeholder="특수문자는 사용할수 없습니다.">
+		    <button type='submit'>검색</button>    
+		</form>
+		
+		<div class="a" style="margin-top: 5px">
+			<input type="button" class="btn btn-primary btn-sm raised" value="공지사항 관리" onClick="location.href='/NoticeList'">
+			<input type="button" class="btn btn-primary btn-sm raised" value="로그인" onClick="location.href='/login'">
+			<input type="button" class="btn btn-primary btn-sm raised" value="홈으로" onClick="location.href='/list'">
+		</div>
+
+</div>
+	
+</body>
+</html>

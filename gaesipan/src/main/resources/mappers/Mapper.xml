@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ 
+<mapper namespace="com.gaesipan.pack.mapper.Mapper">
+
+	<select id="list" parameterType="com.gaesipan.pack.DTO.Criteria" resultType="com.gaesipan.pack.DTO.bDTO">
+        SELECT 
+        	* 
+        FROM 
+        	Board_TB 
+        WHERE 
+        	see = 'Y' AND 
+        	listType = 'Notice' AND 
+        	MTtime > NOW() 
+        UNION ALL 
+		SELECT 
+			* 
+		FROM 
+			Board_TB 
+		WHERE 
+			see = 'Y' AND 
+			listType = 'Normal' 
+		ORDER BY 
+			listType DESC, 
+			seq DESC 
+		LIMIT #{pageStart}, #{perPageNum};
+    </select>
+
+	<select id="searchList" parameterType="com.gaesipan.pack.DTO.Criteria" resultType="com.gaesipan.pack.DTO.bDTO">
+        SELECT 
+        	* 
+        FROM 
+        	Board_TB 
+        WHERE 
+        	see = 'Y' AND 
+        	(MTtime > NOW() OR MTtime is null) AND 
+	        <choose>
+				<when test="option.equals('title_content')">
+        			(title LIKE CONCAT('%',#{search},'%') OR contents LIKE CONCAT('%',#{search},'%')) 
+				</when>
+				<otherwise>
+        			${option} LIKE CONCAT('%',#{search},'%') 
+				</otherwise>
+			</choose>
+        ORDER BY 
+        	seq DESC 
+		LIMIT #{pageStart}, #{perPageNum};
+    </select>
+
+	<select id="NoticeList" parameterType="com.gaesipan.pack.DTO.Criteria" resultType="com.gaesipan.pack.DTO.bDTO">
+        SELECT 
+        	* 
+        FROM 
+        	Board_TB 
+        WHERE 
+        	(see = 'Y' OR see = 'N') AND 
+        	listType = 'Notice' 
+        ORDER BY 
+        	seq DESC 
+		LIMIT #{pageStart}, #{perPageNum};
+    </select>
+
+	<select id="searchNoticeList" parameterType="com.gaesipan.pack.DTO.Criteria" resultType="com.gaesipan.pack.DTO.bDTO">
+        SELECT 
+        	* 
+        FROM 
+        	Board_TB 
+        WHERE 
+        	(see = 'Y' OR see = 'N') AND 
+        	listType = 'Notice' AND 
+	        <choose>
+				<when test="option.equals('title_content')">
+        			(title LIKE CONCAT('%',#{search},'%') OR contents LIKE CONCAT('%',#{search},'%')) 
+				</when>
+				<otherwise>
+        			${option} LIKE CONCAT('%',#{search},'%') 
+				</otherwise>
+			</choose>
+        ORDER BY 
+        	seq DESC 
+		LIMIT #{pageStart}, #{perPageNum};
+    </select>
+
+	<select id="listTotalCount" resultType="int">
+        SELECT 
+        	COUNT(*) 
+        FROM 
+        	Board_TB 
+        WHERE 
+        	see = 'Y' AND 
+        	(
+        		MTtime > NOW() OR 
+        		MTtime is null
+        	);
+    </select>
+
+	<select id="NoticeListTotalCount" resultType="int">
+        SELECT 
+        	COUNT(*) 
+        FROM 
+        	Board_TB 
+        WHERE 
+        	(see = 'Y' OR see = 'N') AND 
+        	listType = 'Notice';
+    </select>
+
+	<select id="content" parameterType="String" resultType="com.gaesipan.pack.DTO.bDTO">
+        SELECT 
+        	* 
+        FROM 
+        	Board_TB 
+        WHERE 
+        	seq = #{seq} AND 
+        	see = 'Y';
+    </select>
+
+	<update id="upHit" parameterType="String">
+        UPDATE 
+        	Board_TB 
+        SET 
+        	hit = hit + 1 
+        WHERE 
+        	seq = #{seq};
+    </update>
+
+	<insert id="write" useGeneratedKeys="true" keyProperty="seq" parameterType="com.gaesipan.pack.DTO.bDTO">
+		INSERT INTO
+			Board_TB (
+				title,
+				contents,
+				author,
+				hit,
+				time,
+				UPtime,
+				see,
+				listType,
+				MTtime
+			)
+			VALUES (
+				#{title},
+				#{contents},
+				#{author},
+				0,
+				NOW(),
+				NOW(),
+				'Y',
+				#{listType},
+				#{MTtime, jdbcType=DATE}
+			);
+	</insert>
+
+	<update id="modify" useGeneratedKeys="true" keyProperty="seq" parameterType="com.gaesipan.pack.DTO.bDTO">
+		UPDATE 
+			Board_TB 
+		SET 
+			title=#{title}, 
+			contents=#{contents}, 
+			MTtime=#{MTtime, jdbcType=DATE}, 
+			UPtime=NOW() 
+		WHERE 
+			seq = #{seq} 
+		LIMIT 1;
+	</update>
+
+	<update id="applyMTtime" useGeneratedKeys="true" keyProperty="seq" parameterType="com.gaesipan.pack.DTO.bdtoCri">
+		UPDATE 
+			Board_TB 
+		SET 
+			see=#{see} 
+		WHERE 
+			seq = #{seq};
+	</update>
+
+	<update id="delete" parameterType="com.gaesipan.pack.DTO.bdtoCri">
+        UPDATE 
+        	Board_TB 
+        SET 
+        <choose>
+			<when test="listType.equals('Normal')">
+        		see = 'N' 
+			</when>
+			<otherwise>
+        		see = 'D' 
+			</otherwise>
+		</choose>
+        WHERE 
+        	seq = #{seq};
+    </update>
+
+	<select id="nextPrev" parameterType="String" resultType="com.gaesipan.pack.DTO.bDTO">
+		<![CDATA[
+	        SELECT * FROM (
+			    SELECT * FROM(SELECT * FROM board_tb  WHERE see = 'Y' AND listType = 'Normal' AND seq < #{seq} ORDER BY seq DESC limit 1) next
+			    UNION
+				SELECT * FROM board_tb  WHERE see = 'Y' AND listType = 'Normal' AND seq = #{seq}
+			    UNION
+			    SELECT * FROM(SELECT * FROM board_tb  WHERE see = 'Y' AND listType = 'Normal' AND seq > #{seq} limit 1) prev
+			) now ORDER BY seq DESC;
+	    ]]>
+    </select>
+
+	<select id="NoticeNextPrev" parameterType="String" resultType="com.gaesipan.pack.DTO.bDTO">
+		<![CDATA[
+	        SELECT * FROM (
+			    SELECT * FROM(SELECT * FROM board_tb  WHERE see = 'Y' AND MTtime > NOW() AND listType = 'Notice' AND seq < #{seq} ORDER BY seq DESC limit 1) next
+			    UNION
+				SELECT * FROM board_tb  WHERE see = 'Y' AND listType = 'Notice' AND seq = #{seq}
+			    UNION
+			    SELECT * FROM(SELECT * FROM board_tb  WHERE see = 'Y' AND MTtime > NOW() AND listType = 'Notice' AND seq > #{seq} limit 1) prev
+			) now ORDER BY seq DESC;
+	    ]]>
+    </select>
+    
+</mapper>      

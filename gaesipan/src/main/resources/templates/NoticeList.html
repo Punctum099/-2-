@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="/css/buttons.css" rel="stylesheet"/>
+<style type="text/css">
+	.a{
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#board{
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 3%;
+		width: 55%;
+	}
+	.none{
+		text-decoration:none;
+		color: black;
+	}
+	.none:hover{
+		text-decoration:none;
+		color: black;
+		font-weight: bold;
+	}
+	#Notice:hover{
+		text-decoration: underline;
+	}
+	.overMTtime{
+		color: #c62828;
+		font-weight: bold;
+	}
+</style>
+<script type="text/javascript" th:inline="javascript">
+/* <![CDATA[ */      
+
+	function Radio_Checked() {
+		var testArray = /*[[ ${list} ]]*/;
+	
+		testArray.forEach(function(currentValue, index, array){
+			if($('input:checkbox[name="' + currentValue.seq + '"]:checked').length < 2){
+				$('input:checkbox[name="' + currentValue.seq + '"]:checked').each(function() {
+					var test = $(this).val(); 
+					$("#" + currentValue.seq).val(test);
+				});
+			}else{
+				$("#" + currentValue.seq).val("Y");
+			}
+			if($('input:checkbox[name="' + currentValue.seq + '"]').is(":checked") != true){
+				$("#" + currentValue.seq).val("N");
+			}
+		});
+		console.log(data); 
+		$("#frm").submit();
+	}
+
+/* ]]> */
+</script>
+</head>
+<body>
+
+<div class="container">
+
+	<table id="board" class="table table-hover" style="width: 85%">
+		<tr style="background-color: Gainsboro;">
+			<td>번호</td>
+			<td>제목</td>
+			<td>글쓴이</td>
+			<td>조회수</td>
+			<td>게시 시간</td>
+			<td>게시 유지일</td>
+			<td>표시 여부</td>
+		</tr>
+		<form action="/applyMTtime" method="post" id="frm">
+			<input type="hidden" name="page" th:value="${cri.page}">
+			<input type="hidden" name="perPageNum" th:value="${cri.perPageNum}">
+			<tr th:if="${dto.listType == 'Notice'}" th:each="dto:${list}">
+			<input type="hidden" name="see" th:id="${dto.seq}">
+			<input type="hidden" name="seq" th:value="${dto.seq}">
+				<td th:text="${dto.seq}">번호</td>
+				<td><a th:href="@{/content(seq=${dto.seq}, page=${cri.page}, perPageNum=${cri.perPageNum})}" th:text="${dto.title}" class="none">제목</a></td>
+				<td th:text="${dto.author}">글쓴이</td>
+				<td th:text="${dto.hit}">조회수</td>
+				<td th:text="${#dates.format(dto.time, 'yyyy-MM-dd')}">게시 시간</td>
+				<td th:if="${dto.MTtime > #dates.format(#dates.createNow(), 'yyyy-MM-dd')}" th:text="${dto.MTtime}">게시 유지일</td>
+				<td th:unless="${dto.MTtime > #dates.format(#dates.createNow(), 'yyyy-MM-dd')}" th:text="${dto.MTtime}" class="overMTtime">게시 유지일</td>
+				<td>
+					<input type="checkbox" th:name="${dto.seq}" value="Y" th:if="${dto.MTtime > #dates.format(#dates.createNow(), 'yyyy-MM-dd')}" th:checked="${dto.see == 'Y'} ? 'checked'">
+					<input type="checkbox" th:name="${dto.seq}" value="Y" th:unless="${dto.MTtime > #dates.format(#dates.createNow(), 'yyyy-MM-dd')}" th:attr="disabled='disabled'">
+					<input type="checkbox" th:name="${dto.seq}" value="N" th:checked="${dto.see != 'Y'} ? 'checked'"style="display:none">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="7" style="text-align: right;"><input type="button" value="표시 여부 적용" onclick="Radio_Checked()" class="btn btn-sm btn-success"></td>
+			</tr>
+		</form>
+		<tr th:if="${list == NULL || list == '' || list == 'empty'}">
+			<td colspan=5>공지사항이 없습니다.</td>
+		</tr>
+	</table>
+	
+	<a th:href="@{/write_view(listType=Notice)}" th:text="공지글작성" class="btn btn-sm btn-success" style="margin-left: 10%"></a>
+	
+	<div class="box-footer clearfix a" style="margin-top: -23px">
+		<ul class="pagination pagination-sm">
+			<li th:if="${pageMaker.prev} == true">
+				<a href="/list"
+				th:href="@{/list(page=${pageMaker.startPage}-1,perPageNum=${pageMaker.cri.perPageNum})}">&laquo;</a>
+			</li>
+			<li
+				th:each="idx,iterStat : ${#numbers.sequence(pageMaker.startPage,pageMaker.endPage)}"
+				th:classappend="${pageMaker.cri.page} == ${idx} ? active : null">
+				<a href="/list"
+				th:href="@{/list(page=${idx},perPageNum=${pageMaker.cri.perPageNum})}"
+				th:text="${idx}"></a>
+			</li>
+			<li th:if="${pageMaker.next} == true and ${pageMaker.endPage > 0}">
+				<a href="/list"
+				th:href="@{/list(page=${pageMaker.endPage}+1,perPageNum=${pageMaker.cri.perPageNum})}">&raquo;</a>
+			</li>
+		</ul>
+	</div>
+	
+		<form method="GET" action="/list" class="a">
+      		<SELECT name="option">
+		        <OPTION value='title' th:if="${cri.option} == 'title'" th:attr="selected=selected">제목</OPTION>
+		        <OPTION value='title' th:unless="${cri.option} == 'title'">제목</OPTION>
+		        
+		        <OPTION value='contents' th:if="${cri.option} == 'contents'" th:attr="selected=selected">내용</OPTION>
+		        <OPTION value='contents' th:unless="${cri.option} == 'contents'">내용</OPTION>
+		        
+		        <OPTION value='author' th:if="${cri.option} == 'author'" th:attr="selected=selected">이름</OPTION>
+		        <OPTION value='author' th:unless="${cri.option} == 'author'">이름</OPTION>
+		        
+		        <OPTION value='title_content' th:if="${cri.option} == 'title_content'" th:attr="selected=selected">제목+내용</OPTION>
+		        <OPTION value='title_content' th:unless="${cri.option} == 'title_content'">제목+내용</OPTION>
+		    </SELECT>
+			<input type="text" name="search" th:value="${cri.search}" placeholder="특수문자는 사용할수 없습니다.">
+		    <button type='submit'>검색</button>    
+		</form>
+		
+		<div class="a" style="margin-top: 5px">
+			<input type="button" class="btn btn-primary btn-sm raised" value="공지사항 관리" onClick="location.href='/NoticeList'" disabled="true">
+			<input type="button" class="btn btn-primary btn-sm raised" value="로그인" onClick="location.href='/login'">
+			<input type="button" class="btn btn-primary btn-sm raised" value="홈으로" onClick="location.href='/list'">
+		</div>
+
+</div>
+	
+</body>
+</html>

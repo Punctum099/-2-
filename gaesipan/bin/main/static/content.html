@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="/css/buttons.css" rel="stylesheet"/>
+<style type="text/css">
+	.a{
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#board{
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 3%;
+		width: 55%;
+	}
+	td{
+		padding-left: 5px;
+	}
+	.wid{
+		width: 100px;
+		text-align: center;
+		padding-left: 0px;
+	}
+	#content{
+		padding: 20px;
+		word-break:break-all;
+	}
+</style>
+</head>
+<body>
+
+	<table width="500" cellpadding="0" cellspacing="0" border="1" id="board">
+		<form action="/modify_view" method="post">
+			<input type="hidden" name="seq" th:value="${content.seq}">
+			<tr>
+				<td class="wid"> 번호 </td>
+				<td th:text="${content.seq}">1</td>
+			</tr>
+			<tr>
+				<td class="wid"> 조회수 </td>
+				<td th:text="${content.hit}">100</td>
+			</tr>
+			<tr>
+				<td class="wid"> 이름 </td>
+				<td th:text="${content.author}">user</td>
+			</tr>
+			<tr>
+				<td class="wid"> 제목 </td>
+				<td th:text="${content.title}">title</td>
+			</tr>
+			<tr>
+				<td id="content" colspan="2" height="500" th:utext="${content.contents}">content content content content content content content content content content content content content content content content content content content content content content content content </td>
+			</tr>
+			<tr >
+				<td colspan="2" style="text-align: right;"> 
+					<input type="submit" value="수정" class="btn btn-primary btn-sm gradient"> &nbsp;&nbsp; 
+					<a class="btn btn-primary btn-sm gradient" th:href="@{/list(page=${cri.page},perPageNum=${cri.perPageNum})}">목록으로</a> &nbsp;&nbsp; 
+		</form>
+		<form action="/delete" method="post" style="display:inline;">
+					<input type="hidden" name="seq" th:value="${content.seq}">
+					<input type="hidden" name="listType" th:value="${content.listType}">
+					<input type="hidden" name="page" th:value="${cri.page}">
+					<input type="hidden" name="perPageNum" th:value="${cri.perPageNum}">
+					<input class="btn btn-danger btn-sm gradient" type="submit" value="삭제"></input> &nbsp;&nbsp;
+					<input type="button" value="공지글 목록보기" class="btn btn-warning btn-sm gradient" onClick="location.href='/NoticeList'" th:if="${content.listType == 'Notice'}">
+				</td>
+			</tr>
+		</form>
+	</table>
+
+	<table class="table table-hover" id="board">
+		<tr th:each="nextPrev, stat : ${nextPrev}">
+			<div th:if="${nextPrev.seq != content.seq}">
+					<td class="wid" th:if="${stat.first && stat.size != 1}">다음 글</td>
+					<td class="wid" th:if="${stat.last}">이전 글</td>
+					<td><a th:href="@{/content(seq=${nextPrev.seq}, page=${cri.page}, perPageNum=${cri.perPageNum})}" th:text="${nextPrev.title}"></a></td>
+			</div>
+		</tr>
+	</table>
+
+</body>
+</html>
