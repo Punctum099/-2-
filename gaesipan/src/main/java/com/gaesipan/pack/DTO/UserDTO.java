@@ -1,6 +1,6 @@
 package com.gaesipan.pack.DTO;
 
-public class uDTO {
+public class UserDTO {
 	private int seq;
 	private String id;
 	private String password;
@@ -15,7 +15,7 @@ public class uDTO {
 	private String goust;
 	private String join_date;
 	
-	public uDTO(int seq, String id, String password, String local_email, String domain_email, String nickname,
+	public UserDTO(int seq, String id, String password, String local_email, String domain_email, String nickname,
 			String name, String gender, String birthday, String tel, String grade, String goust, String join_date) {
 		this.seq = seq;
 		this.id = id;

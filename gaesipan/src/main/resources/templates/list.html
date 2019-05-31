@@ -100,7 +100,7 @@
 		        <OPTION value='title_content' th:if="${cri.option} == 'title_content'" th:attr="selected=selected">제목+내용</OPTION>
 		        <OPTION value='title_content' th:unless="${cri.option} == 'title_content'">제목+내용</OPTION>
 		    </SELECT>
-			<input type="text" name="search" th:value="${cri.search}" placeholder="특수문자는 사용할수 없습니다.">
+			<input type="text" name="search" th:value="${cri.search}">
 		    <button type='submit'>검색</button>    
 		</form>
 		

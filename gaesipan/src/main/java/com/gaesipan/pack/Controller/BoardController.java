@@ -1,7 +1,5 @@
 package com.gaesipan.pack.Controller;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,19 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.gaesipan.pack.DTO.BoardDTO;
 import com.gaesipan.pack.DTO.Criteria;
 import com.gaesipan.pack.DTO.PageMaker;
-import com.gaesipan.pack.DTO.bDTO;
 import com.gaesipan.pack.DTO.bdtoCri;
-import com.gaesipan.pack.mapper.Mapper;
+import com.gaesipan.pack.Service.Service;
 
 @Controller
-public class AllController {
+public class BoardController {
 	
-	private static Logger logger = LoggerFactory.getLogger(AllController.class);
+	private static Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
 	@Autowired
-    private Mapper mapper;
+    private Service service;
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(@ModelAttribute("cri") Criteria cri, Model model){
@@ -34,12 +32,12 @@ public class AllController {
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(mapper.listTotalCount());
+		pageMaker.setTotalCount(service.listTotalCount());
 		
 		if(cri.getOption() != null && cri.getSearch() != null) {
-			model.addAttribute("list", mapper.searchList(cri));
+			model.addAttribute("list", service.searchList(cri));
 		}else {
-			model.addAttribute("list", mapper.list(cri));
+			model.addAttribute("list", service.list(cri));
 		}
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("cri", cri);
@@ -56,12 +54,12 @@ public class AllController {
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(mapper.NoticeListTotalCount());
+		pageMaker.setTotalCount(service.NoticeListTotalCount());
 		
 		if(cri.getOption() != null && cri.getSearch() != null) {
-			model.addAttribute("list", mapper.searchNoticeList(cri));
+			model.addAttribute("list", service.searchNoticeList(cri));
 		}else {
-			model.addAttribute("list", mapper.NoticeList(cri));
+			model.addAttribute("list", service.NoticeList(cri));
 		}
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("cri", cri);
@@ -77,15 +75,15 @@ public class AllController {
         logger.info(cri.toString());
         logger.info("content seq : " + seq);
 		
-        mapper.upHit(seq);
+        service.upHit(seq);
         
-        bDTO dto = mapper.content(seq);
+        BoardDTO dto = service.content(seq);
         
 		model.addAttribute("content", dto);
 		if(dto.getListType().equals("Notice")) {
-			model.addAttribute("nextPrev", mapper.NoticeNextPrev(seq));
+			model.addAttribute("nextPrev", service.NoticeNextPrev(seq));
 		}else if(dto.getListType().equals("Normal")){
-			model.addAttribute("nextPrev", mapper.nextPrev(seq));
+			model.addAttribute("nextPrev", service.nextPrev(seq));
 		}
 		model.addAttribute("cri", cri);
 		
@@ -101,16 +99,16 @@ public class AllController {
 	}
 
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
-	public String write(@RequestBody @ModelAttribute("dto") bDTO dto, Model model){
+	public String write(@RequestBody @ModelAttribute("dto") BoardDTO dto, Model model){
 
         logger.info("write author : " + dto.getAuthor());
         logger.info("write title : " + dto.getTitle());
         
-        mapper.write(dto);
+        service.write(dto);
         
         Criteria cri = new Criteria();
         
-        model.addAttribute("content", mapper.content(dto.getSeq()));
+        model.addAttribute("content", service.content(dto.getSeq()));
 		model.addAttribute("cri", cri);
         
 		return "content";
@@ -121,16 +119,16 @@ public class AllController {
 
         logger.info("modify_view seq : " + seq);
         
-        //mapper.modify(dto);
+        //service.modify(dto);
         
-        model.addAttribute("content", mapper.content(seq));
+        model.addAttribute("content", service.content(seq));
 		model.addAttribute("cri", cri);
         
 		return "modify_view";
 	}
 
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
-	public String modify(@ModelAttribute("dto") bDTO dto, @RequestParam int page, @RequestParam int perPageNum, Model model){
+	public String modify(@ModelAttribute("dto") BoardDTO dto, @RequestParam int page, @RequestParam int perPageNum, Model model){
 
         logger.info("modify seq : " + dto.getSeq());
         logger.info("modify author : " + dto.getAuthor());
@@ -139,8 +137,8 @@ public class AllController {
         cri.setPage(page);
         cri.setPerPageNum(perPageNum);
         
-        mapper.modify(dto);
-        model.addAttribute("content", mapper.content(dto.getSeq()));
+        service.modify(dto);
+        model.addAttribute("content", service.content(dto.getSeq()));
 		model.addAttribute("cri", cri);
         
 		return "content";
@@ -151,7 +149,7 @@ public class AllController {
 
         logger.info("delete seq : " + bdtoCri.getSeq());
         
-        mapper.delete(bdtoCri);
+        service.delete(bdtoCri);
         
         Criteria cri = new Criteria();
 
@@ -160,9 +158,9 @@ public class AllController {
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(mapper.listTotalCount());
+		pageMaker.setTotalCount(service.listTotalCount());
 
-		model.addAttribute("list", mapper.list(cri));
+		model.addAttribute("list", service.list(cri));
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("cri", cri);
         
@@ -186,7 +184,7 @@ public class AllController {
         	dto[i] = new bdtoCri();
         	dto[i].setSeq(arrSeq[i]);
         	dto[i].setSee(arrSee[i]);
-            mapper.applyMTtime(dto[i]);
+            service.applyMTtime(dto[i]);
         }
         
         Criteria cri = new Criteria();
@@ -196,9 +194,9 @@ public class AllController {
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(mapper.NoticeListTotalCount());
+		pageMaker.setTotalCount(service.NoticeListTotalCount());
 
-		model.addAttribute("list", mapper.NoticeList(cri));
+		model.addAttribute("list", service.NoticeList(cri));
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("cri", cri);
         
@@ -206,18 +204,3 @@ public class AllController {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

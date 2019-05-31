@@ -2,7 +2,7 @@ package com.gaesipan.pack.DTO;
 
 import java.util.Date;
 
-public class bDTO {
+public class BoardDTO {
 
 	private String seq;
 	private String title;
@@ -15,7 +15,7 @@ public class bDTO {
 	private String listType;
 	private String MTtime;
 	
-	public bDTO(String seq, String title, String contents, String author, String hit, 
+	public BoardDTO(String seq, String title, String contents, String author, String hit, 
 			Date time, Date UPtime, String see, String listType, String MTtime) {
 		this.seq = seq;
 		this.title = title;

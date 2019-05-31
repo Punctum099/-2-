@@ -1,7 +1,5 @@
 package com.gaesipan.pack.DTO;
 
-import java.util.List;
-
 public class bdtoCri {
 
 	private String seq;
@@ -9,7 +7,6 @@ public class bdtoCri {
 	private String listType;
 	private int page;  		    // 보여줄 페이지 번호
 	private int perPageNum;   // 페이지당 보여줄 게시글의 개수
-	private List<bdtoCri> list;
 	
 	public String getSeq() {
 		return seq;
@@ -40,12 +37,6 @@ public class bdtoCri {
 	}
 	public void setPerPageNum(int perPageNum) {
 		this.perPageNum = perPageNum;
-	}
-	public List<bdtoCri> getList() {
-		return list;
-	}
-	public void setList(List<bdtoCri> list) {
-		this.list = list;
 	}
 
 }

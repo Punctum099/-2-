@@ -110,24 +110,24 @@
 	<div class="box-footer clearfix a" style="margin-top: -23px">
 		<ul class="pagination pagination-sm">
 			<li th:if="${pageMaker.prev} == true">
-				<a href="/list"
-				th:href="@{/list(page=${pageMaker.startPage}-1,perPageNum=${pageMaker.cri.perPageNum})}">&laquo;</a>
+				<a href="/NoticeList"
+				th:href="@{/NoticeList(page=${pageMaker.startPage}-1,perPageNum=${pageMaker.cri.perPageNum})}">&laquo;</a>
 			</li>
 			<li
 				th:each="idx,iterStat : ${#numbers.sequence(pageMaker.startPage,pageMaker.endPage)}"
 				th:classappend="${pageMaker.cri.page} == ${idx} ? active : null">
-				<a href="/list"
-				th:href="@{/list(page=${idx},perPageNum=${pageMaker.cri.perPageNum})}"
+				<a href="/NoticeList"
+				th:href="@{/NoticeList(page=${idx},perPageNum=${pageMaker.cri.perPageNum})}"
 				th:text="${idx}"></a>
 			</li>
 			<li th:if="${pageMaker.next} == true and ${pageMaker.endPage > 0}">
-				<a href="/list"
-				th:href="@{/list(page=${pageMaker.endPage}+1,perPageNum=${pageMaker.cri.perPageNum})}">&raquo;</a>
+				<a href="/NoticeList"
+				th:href="@{/NoticeList(page=${pageMaker.endPage}+1,perPageNum=${pageMaker.cri.perPageNum})}">&raquo;</a>
 			</li>
 		</ul>
 	</div>
 	
-		<form method="GET" action="/list" class="a">
+		<form method="GET" action="/NoticeList" class="a">
       		<SELECT name="option">
 		        <OPTION value='title' th:if="${cri.option} == 'title'" th:attr="selected=selected">제목</OPTION>
 		        <OPTION value='title' th:unless="${cri.option} == 'title'">제목</OPTION>
@@ -141,7 +141,7 @@
 		        <OPTION value='title_content' th:if="${cri.option} == 'title_content'" th:attr="selected=selected">제목+내용</OPTION>
 		        <OPTION value='title_content' th:unless="${cri.option} == 'title_content'">제목+내용</OPTION>
 		    </SELECT>
-			<input type="text" name="search" th:value="${cri.search}" placeholder="특수문자는 사용할수 없습니다.">
+			<input type="text" name="search" th:value="${cri.search}">
 		    <button type='submit'>검색</button>    
 		</form>
 		
