@@ -100,12 +100,12 @@
 		        <OPTION value='title_content' th:if="${cri.option} == 'title_content'" th:attr="selected=selected">제목+내용</OPTION>
 		        <OPTION value='title_content' th:unless="${cri.option} == 'title_content'">제목+내용</OPTION>
 		    </SELECT>
-			<input type="text" name="search" th:value="${cri.search}">
+			<input type="text" name="search" th:value="${cri.search}" placeholder="특수문자는 사용할수 없습니다.">
 		    <button type='submit'>검색</button>    
 		</form>
 		
 		<div class="a" style="margin-top: 5px">
-			<input type="button" class="btn btn-primary btn-sm raised" value="공지사항 관리" onClick="location.href='/NoticeList'">
+			<input type="button" class="btn btn-primary btn-sm raised" value="공지사항 관리" onClick="location.href='/hard/NoticeList'">
 			<input type="button" class="btn btn-primary btn-sm raised" value="로그인" onClick="location.href='/login'">
 			<input type="button" class="btn btn-primary btn-sm raised" value="홈으로" onClick="location.href='/list'">
 		</div>

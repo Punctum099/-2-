@@ -69,7 +69,7 @@
 					<input type="hidden" name="page" th:value="${cri.page}">
 					<input type="hidden" name="perPageNum" th:value="${cri.perPageNum}">
 					<input class="btn btn-danger btn-sm gradient" type="submit" value="삭제"></input> &nbsp;&nbsp;
-					<input type="button" value="공지글 목록보기" class="btn btn-warning btn-sm gradient" onClick="location.href='/NoticeList'" th:if="${content.listType == 'Notice'}">
+					<input type="button" value="공지글 목록보기" class="btn btn-warning btn-sm gradient" onClick="location.href='/hard/NoticeList'" th:if="${content.listType == 'Notice'}">
 				</td>
 			</tr>
 		</form>

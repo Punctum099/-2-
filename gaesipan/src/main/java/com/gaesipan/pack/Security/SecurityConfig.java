@@ -21,15 +21,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     	//인증이 필요하지 않은 경로와 인증이 필요한 경로를 설정
     	//여기서는 순서가 중요. 앞에서부터 검사해서 매칭이 일어나면 바로 규칙이 적용되어 그 뒤의 규칙은 무시되므로 우선순위를 고려하여 순서를 정해야 함 
         http.authorizeRequests()
-        		//정적 자원에 대해서는 인증 없이 접근이 가능하도록 완전히 허용
-                .antMatchers("/css/**", "/js/**", "/img/**").permitAll()
+        		//'/soft/**' 경로와 정적 자원에 대해서는 인증 없이 접근이 가능하도록 완전히 허용
+                .antMatchers("/css/**", "/js/**", "/img/**","/soft/**", "/list").permitAll()
                 
-                //'/auth/admin/**' 경로에 대해서는 "ROLE_ADMIN" 권한이 있어야 접근이 가능
-                .antMatchers("/auth/admin/**").hasRole("ADMIN") // 내부적으로 접두어 "ROLE_"가 붙는다.
+                //'/hard/**' 경로에 대해서는 "ROLE_ADMIN" 권한이 있어야 접근이 가능
+                .antMatchers("/hard/**").hasRole("ADMIN") // 내부적으로 접두어 "ROLE_"가 붙는다.
                 
-                //"/auth/**" 경로에 대해서 ROLE_ADMIN, ROLE_USER 중에 어느 하나라도 권한이 있어야 접근이 가능
+                //"/normal/**" 경로에 대해서 ROLE_ADMIN, ROLE_USER 중에 어느 하나라도 권한이 있어야 접근이 가능
                 //위라인의 규칙도 여기에 해당하지만 먼저 선언되어있기 때문에 이 규칙이 우선 적용될 일은 없다.
-                .antMatchers("/auth/**").hasAnyRole("ADMIN", "USER") // 내부적으로 접두어 "ROLE_"가 붙는다.
+                .antMatchers("/normal/**").hasAnyRole("ADMIN", "USER") // 내부적으로 접두어 "ROLE_"가 붙는다.
                 
                 //기타 나머지 요청에 대해서는 인증된 사용자만 접근이 되도록 설정
                 .anyRequest().authenticated();
@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 
                 //인증이 성공하면 원래 접근하려고 했던 경로로 돌아가는 게 기본 동작
                 //처음부터 로그인 페이지를 요청한 경우라면 돌아갈 경로가 없으므로 이 때는 여기서 지정된 URL로 이동
-                .defaultSuccessUrl("/home")
+                .defaultSuccessUrl("/list")
                 
                 //로그인 페이지에서 제공하는 username 파라메터의 이름이 무엇인지 지정
                 .usernameParameter("id")

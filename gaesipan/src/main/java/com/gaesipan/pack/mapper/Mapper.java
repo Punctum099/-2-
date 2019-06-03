@@ -1,13 +1,14 @@
-package com.gaesipan.pack.Service;
+package com.gaesipan.pack.mapper;
 
 import java.util.List;
 
 import com.gaesipan.pack.DTO.Criteria;
-import com.gaesipan.pack.DTO.UserDTO;
+import com.gaesipan.pack.DTO.LoginVO;
 import com.gaesipan.pack.DTO.BoardDTO;
 import com.gaesipan.pack.DTO.bdtoCri;
+import com.gaesipan.pack.DTO.UserDTO;
 
-public interface Service {
+public interface Mapper {
 	
 	public List<BoardDTO> list(Criteria cri);
 
@@ -37,8 +38,6 @@ public interface Service {
 
 	public void applyMTtime(bdtoCri bdtoCri);
 
-	public UserDTO authenticate(String id, String password);
-
-	//public UserDTO authenticate(UserDTO userDTO);
+	public UserDTO authenticate(LoginVO loginVO);
 	
 }

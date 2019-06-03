@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  
 <mapper namespace="com.gaesipan.pack.mapper.Mapper">
 
-	<select id="list" parameterType="com.gaesipan.pack.DTO.Criteria" resultType="com.gaesipan.pack.DTO.bDTO">
+	<select id="list" parameterType="com.gaesipan.pack.DTO.Criteria" resultType="com.gaesipan.pack.DTO.BoardDTO">
         SELECT 
         	* 
         FROM 
@@ -28,7 +28,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		LIMIT #{pageStart}, #{perPageNum};
     </select>
 
-	<select id="searchList" parameterType="com.gaesipan.pack.DTO.Criteria" resultType="com.gaesipan.pack.DTO.bDTO">
+	<select id="searchList" parameterType="com.gaesipan.pack.DTO.Criteria" resultType="com.gaesipan.pack.DTO.BoardDTO">
         SELECT 
         	* 
         FROM 
@@ -49,7 +49,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		LIMIT #{pageStart}, #{perPageNum};
     </select>
 
-	<select id="NoticeList" parameterType="com.gaesipan.pack.DTO.Criteria" resultType="com.gaesipan.pack.DTO.bDTO">
+	<select id="NoticeList" parameterType="com.gaesipan.pack.DTO.Criteria" resultType="com.gaesipan.pack.DTO.BoardDTO">
         SELECT 
         	* 
         FROM 
@@ -62,7 +62,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		LIMIT #{pageStart}, #{perPageNum};
     </select>
 
-	<select id="searchNoticeList" parameterType="com.gaesipan.pack.DTO.Criteria" resultType="com.gaesipan.pack.DTO.bDTO">
+	<select id="searchNoticeList" parameterType="com.gaesipan.pack.DTO.Criteria" resultType="com.gaesipan.pack.DTO.BoardDTO">
         SELECT 
         	* 
         FROM 
@@ -106,7 +106,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         	listType = 'Notice';
     </select>
 
-	<select id="content" parameterType="String" resultType="com.gaesipan.pack.DTO.bDTO">
+	<select id="content" parameterType="String" resultType="com.gaesipan.pack.DTO.BoardDTO">
         SELECT 
         	* 
         FROM 
@@ -125,7 +125,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         	seq = #{seq};
     </update>
 
-	<insert id="write" useGeneratedKeys="true" keyProperty="seq" parameterType="com.gaesipan.pack.DTO.bDTO">
+	<insert id="write" useGeneratedKeys="true" keyProperty="seq" parameterType="com.gaesipan.pack.DTO.BoardDTO">
 		INSERT INTO
 			Board_TB (
 				title,
@@ -151,7 +151,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			);
 	</insert>
 
-	<update id="modify" useGeneratedKeys="true" keyProperty="seq" parameterType="com.gaesipan.pack.DTO.bDTO">
+	<update id="modify" useGeneratedKeys="true" keyProperty="seq" parameterType="com.gaesipan.pack.DTO.BoardDTO">
 		UPDATE 
 			Board_TB 
 		SET 
@@ -189,7 +189,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         	seq = #{seq};
     </update>
 
-	<select id="nextPrev" parameterType="String" resultType="com.gaesipan.pack.DTO.bDTO">
+	<select id="nextPrev" parameterType="String" resultType="com.gaesipan.pack.DTO.BoardDTO">
 		<![CDATA[
 	        SELECT * FROM (
 			    SELECT * FROM(SELECT * FROM board_tb  WHERE see = 'Y' AND listType = 'Normal' AND seq < #{seq} ORDER BY seq DESC limit 1) next
@@ -201,7 +201,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    ]]>
     </select>
 
-	<select id="NoticeNextPrev" parameterType="String" resultType="com.gaesipan.pack.DTO.bDTO">
+	<select id="NoticeNextPrev" parameterType="String" resultType="com.gaesipan.pack.DTO.BoardDTO">
 		<![CDATA[
 	        SELECT * FROM (
 			    SELECT * FROM(SELECT * FROM board_tb  WHERE see = 'Y' AND MTtime > NOW() AND listType = 'Notice' AND seq < #{seq} ORDER BY seq DESC limit 1) next
@@ -211,6 +211,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			    SELECT * FROM(SELECT * FROM board_tb  WHERE see = 'Y' AND MTtime > NOW() AND listType = 'Notice' AND seq > #{seq} limit 1) prev
 			) now ORDER BY seq DESC;
 	    ]]>
+    </select>
+    
+    
+    
+    
+    
+
+	<select id="authenticate" parameterType="com.gaesipan.pack.DTO.LoginVO" resultType="com.gaesipan.pack.DTO.UserDTO">
+		SELECT 
+			* 
+		FROM 
+			Member_TB 
+		WHERE 
+			id = #{id} AND
+			password = #{password};
     </select>
     
 </mapper>      

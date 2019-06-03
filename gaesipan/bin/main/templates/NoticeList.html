@@ -77,7 +77,7 @@
 			<td>게시 유지일</td>
 			<td>표시 여부</td>
 		</tr>
-		<form action="/applyMTtime" method="post" id="frm">
+		<form action="/hard/applyMTtime" method="post" id="frm">
 			<input type="hidden" name="page" th:value="${cri.page}">
 			<input type="hidden" name="perPageNum" th:value="${cri.perPageNum}">
 			<tr th:if="${dto.listType == 'Notice'}" th:each="dto:${list}">
@@ -110,24 +110,24 @@
 	<div class="box-footer clearfix a" style="margin-top: -23px">
 		<ul class="pagination pagination-sm">
 			<li th:if="${pageMaker.prev} == true">
-				<a href="/NoticeList"
-				th:href="@{/NoticeList(page=${pageMaker.startPage}-1,perPageNum=${pageMaker.cri.perPageNum})}">&laquo;</a>
+				<a href="/list"
+				th:href="@{/list(page=${pageMaker.startPage}-1,perPageNum=${pageMaker.cri.perPageNum})}">&laquo;</a>
 			</li>
 			<li
 				th:each="idx,iterStat : ${#numbers.sequence(pageMaker.startPage,pageMaker.endPage)}"
 				th:classappend="${pageMaker.cri.page} == ${idx} ? active : null">
-				<a href="/NoticeList"
-				th:href="@{/NoticeList(page=${idx},perPageNum=${pageMaker.cri.perPageNum})}"
+				<a href="/list"
+				th:href="@{/list(page=${idx},perPageNum=${pageMaker.cri.perPageNum})}"
 				th:text="${idx}"></a>
 			</li>
 			<li th:if="${pageMaker.next} == true and ${pageMaker.endPage > 0}">
-				<a href="/NoticeList"
-				th:href="@{/NoticeList(page=${pageMaker.endPage}+1,perPageNum=${pageMaker.cri.perPageNum})}">&raquo;</a>
+				<a href="/list"
+				th:href="@{/list(page=${pageMaker.endPage}+1,perPageNum=${pageMaker.cri.perPageNum})}">&raquo;</a>
 			</li>
 		</ul>
 	</div>
 	
-		<form method="GET" action="/NoticeList" class="a">
+		<form method="GET" action="/list" class="a">
       		<SELECT name="option">
 		        <OPTION value='title' th:if="${cri.option} == 'title'" th:attr="selected=selected">제목</OPTION>
 		        <OPTION value='title' th:unless="${cri.option} == 'title'">제목</OPTION>
@@ -141,12 +141,12 @@
 		        <OPTION value='title_content' th:if="${cri.option} == 'title_content'" th:attr="selected=selected">제목+내용</OPTION>
 		        <OPTION value='title_content' th:unless="${cri.option} == 'title_content'">제목+내용</OPTION>
 		    </SELECT>
-			<input type="text" name="search" th:value="${cri.search}">
+			<input type="text" name="search" th:value="${cri.search}" placeholder="특수문자는 사용할수 없습니다.">
 		    <button type='submit'>검색</button>    
 		</form>
 		
 		<div class="a" style="margin-top: 5px">
-			<input type="button" class="btn btn-primary btn-sm raised" value="공지사항 관리" onClick="location.href='/NoticeList'" disabled="true">
+			<input type="button" class="btn btn-primary btn-sm raised" value="공지사항 관리" onClick="location.href='/hard/NoticeList'" disabled="true">
 			<input type="button" class="btn btn-primary btn-sm raised" value="로그인" onClick="location.href='/login'">
 			<input type="button" class="btn btn-primary btn-sm raised" value="홈으로" onClick="location.href='/list'">
 		</div>

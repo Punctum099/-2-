@@ -11,8 +11,9 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
+import com.gaesipan.pack.DTO.LoginVO;
 import com.gaesipan.pack.DTO.UserDTO;
-import com.gaesipan.pack.Service.Service;
+import com.gaesipan.pack.mapper.Mapper;
 
 //AuthenticationProvider를 상속하는 클래스
 //Autowired로 주입할 것이므로 scan이 될 수 있도록 @Component Annotation을 붙여줌
@@ -21,7 +22,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
  
 	//실질적으로 인증 로직을 구현하는 service 객체
     @Autowired
-    Service service;
+    Mapper mapper;
  
     //Spring Security가 인증을 수행하기 위해서 호출을 해주는 메소드
     //이 메소드로 넘겨지는 authentication 인자를 이용해서 사용자의 입력값을 얻고 인증을 수행
@@ -34,10 +35,17 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
     	
     	//로그인 페이지에서 password 파라메터로 전송한 값을 얻어옴
         String password = (String) authentication.getCredentials();
+        
+        LoginVO loginVO = new LoginVO();
+        loginVO.setId(id);
+        loginVO.setPassword(password);
+        System.out.println(loginVO.getId());
+        System.out.println(loginVO.getPassword());
  
         //service.authenticate()가 인증을 수행한 후 인증이 성공적인 경우 등록된 사용자의 정보를 UserVO 객체에 담아서 반환 
         //인증이 실패한 경우에는 null을 반환
-        UserDTO userDTO = service.authenticate(id, password);
+        UserDTO userDTO = mapper.authenticate(loginVO);
+        System.out.println(userDTO);
         if (userDTO == null) {
         	//인증 실패 시 AuthenticationException 예외를 발생
         	//AuthenticationException을 상속하는 여러 Exception 중 BadCredentialsException을 사용
@@ -49,7 +57,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
  
         //사용자 권한(authority) 정보를 만들어서 설정
         ArrayList<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+        authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 
         /* Authentication 인터페이스를 구현한 UsernamePasswordAuthenticationToken 클래스를 생성해서 반환
          * 이 클래스는 Spring Security에서 제공되는 클래스인데 대부분의 경우에 사용하기 적당

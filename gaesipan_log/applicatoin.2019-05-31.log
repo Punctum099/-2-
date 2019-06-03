@@ -1,0 +1,708 @@
+2019:05:31 09:57:05.642 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : Starting GaesipanApplication on kwon-PC with PID 10884 (started by kwon in C:\Users\kwon\Desktop\실습생 폴더\sts-bundle\workspace\gaesipan) 
+2019:05:31 09:57:05.648 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : No active profile set, falling back to default profiles: default 
+2019:05:31 09:57:06.675 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http) 
+2019:05:31 09:57:06.708 INFO  --- [main] o.a.catalina.core.StandardService : Starting service [Tomcat] 
+2019:05:31 09:57:06.709 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.19] 
+2019:05:31 09:57:06.869 INFO  --- [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2019:05:31 09:57:06.869 DEBUG --- [main] o.s.web.context.ContextLoader : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT] 
+2019:05:31 09:57:06.869 INFO  --- [main] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 916 ms 
+2019:05:31 09:57:07.143 DEBUG --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Patterns [/**/favicon.ico] in 'faviconHandlerMapping' 
+2019:05:31 09:57:07.304 INFO  --- [main] o.s.s.c.ThreadPoolTaskExecutor : Initializing ExecutorService 'applicationTaskExecutor' 
+2019:05:31 09:57:07.313 DEBUG --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice 
+2019:05:31 09:57:07.346 DEBUG --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : 11 mappings in 'requestMappingHandlerMapping' 
+2019:05:31 09:57:07.353 DEBUG --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Patterns [/webjars/**, /**] in 'resourceHandlerMapping' 
+2019:05:31 09:57:07.359 DEBUG --- [main] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice 
+2019:05:31 09:57:07.624 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path '' 
+2019:05:31 09:57:07.626 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : Started GaesipanApplication in 2.385 seconds (JVM running for 3.071) 
+2019:05:31 09:57:14.083 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019:05:31 09:57:14.083 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet' 
+2019:05:31 09:57:14.084 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Detected StandardServletMultipartResolver 
+2019:05:31 09:57:14.088 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data 
+2019:05:31 09:57:14.089 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 6 ms 
+2019:05:31 09:57:14.095 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : GET "/NoticeList", parameters={} 
+2019:05:31 09:57:14.099 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 09:57:14.114 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 09:57:14.124 INFO  --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting... 
+2019:05:31 09:57:14.222 INFO  --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed. 
+2019:05:31 09:57:14.260 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 09:57:14.267 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 09:57:14.514 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : GET "/css/buttons.css", parameters={} 
+2019:05:31 09:57:14.517 DEBUG --- [http-nio-8080-exec-2] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler ["classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/", "/"] 
+2019:05:31 09:57:14.520 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : Completed 304 NOT_MODIFIED 
+2019:05:31 09:57:14.593 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 09:57:14.618 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : GET "/favicon.ico", parameters={} 
+2019:05:31 09:57:14.618 DEBUG --- [http-nio-8080-exec-3] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler [class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], ServletContext resource [/], class path resource []] 
+2019:05:31 09:57:14.637 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 09:57:22.364 DEBUG --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet : GET "/list?option=title&search=%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD", parameters={masked} 
+2019:05:31 09:57:22.364 DEBUG --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 09:57:22.368 INFO  --- [http-nio-8080-exec-4] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = title, search = 공지사항] 
+2019:05:31 09:57:22.383 INFO  --- [http-nio-8080-exec-4] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = title, search = 공지사항]] 
+2019:05:31 09:57:22.384 DEBUG --- [http-nio-8080-exec-4] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 09:57:22.398 DEBUG --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 09:57:25.439 DEBUG --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet : GET "/list", parameters={} 
+2019:05:31 09:57:25.440 DEBUG --- [http-nio-8080-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 09:57:25.440 INFO  --- [http-nio-8080-exec-5] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 09:57:25.452 INFO  --- [http-nio-8080-exec-5] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 09:57:25.453 DEBUG --- [http-nio-8080-exec-5] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 09:57:25.465 DEBUG --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 09:57:29.820 DEBUG --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet : GET "/list?option=title&search=273", parameters={masked} 
+2019:05:31 09:57:29.820 DEBUG --- [http-nio-8080-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 09:57:29.821 INFO  --- [http-nio-8080-exec-6] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = title, search = 273] 
+2019:05:31 09:57:29.825 INFO  --- [http-nio-8080-exec-6] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = title, search = 273]] 
+2019:05:31 09:57:29.826 DEBUG --- [http-nio-8080-exec-6] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 09:57:29.830 DEBUG --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 09:57:31.060 DEBUG --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet : GET "/NoticeList", parameters={} 
+2019:05:31 09:57:31.061 DEBUG --- [http-nio-8080-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 09:57:31.062 INFO  --- [http-nio-8080-exec-7] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 09:57:31.069 INFO  --- [http-nio-8080-exec-7] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 09:57:31.070 DEBUG --- [http-nio-8080-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 09:57:31.085 DEBUG --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 09:57:36.722 DEBUG --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet : GET "/list?option=title&search=title", parameters={masked} 
+2019:05:31 09:57:36.724 DEBUG --- [http-nio-8080-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 09:57:36.725 INFO  --- [http-nio-8080-exec-8] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = title, search = title] 
+2019:05:31 09:57:36.731 INFO  --- [http-nio-8080-exec-8] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = title, search = title]] 
+2019:05:31 09:57:36.733 DEBUG --- [http-nio-8080-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 09:57:36.735 DEBUG --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 09:57:39.805 DEBUG --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet : GET "/list", parameters={} 
+2019:05:31 09:57:39.806 DEBUG --- [http-nio-8080-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 09:57:39.807 INFO  --- [http-nio-8080-exec-9] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 09:57:39.821 INFO  --- [http-nio-8080-exec-9] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 09:57:39.822 DEBUG --- [http-nio-8080-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 09:57:39.829 DEBUG --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 09:58:41.164 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : GET "/NoticeList", parameters={} 
+2019:05:31 09:58:41.165 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 09:58:41.166 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 09:58:41.175 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 09:58:41.176 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 09:58:41.185 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 09:59:13.424 INFO  --- [RMI TCP Connection(8)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested. 
+2019:05:31 09:59:13.426 INFO  --- [RMI TCP Connection(8)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor : Shutting down ExecutorService 'applicationTaskExecutor' 
+2019:05:31 09:59:13.427 INFO  --- [RMI TCP Connection(8)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
+2019:05:31 09:59:13.432 INFO  --- [RMI TCP Connection(8)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 
+2019:05:31 09:59:16.816 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : Starting GaesipanApplication on kwon-PC with PID 13388 (started by kwon in C:\Users\kwon\Desktop\실습생 폴더\sts-bundle\workspace\gaesipan) 
+2019:05:31 09:59:16.818 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : No active profile set, falling back to default profiles: default 
+2019:05:31 09:59:17.657 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http) 
+2019:05:31 09:59:17.687 INFO  --- [main] o.a.catalina.core.StandardService : Starting service [Tomcat] 
+2019:05:31 09:59:17.688 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.19] 
+2019:05:31 09:59:17.767 INFO  --- [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2019:05:31 09:59:17.767 DEBUG --- [main] o.s.web.context.ContextLoader : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT] 
+2019:05:31 09:59:17.767 INFO  --- [main] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 795 ms 
+2019:05:31 09:59:17.980 DEBUG --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Patterns [/**/favicon.ico] in 'faviconHandlerMapping' 
+2019:05:31 09:59:18.109 INFO  --- [main] o.s.s.c.ThreadPoolTaskExecutor : Initializing ExecutorService 'applicationTaskExecutor' 
+2019:05:31 09:59:18.117 DEBUG --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice 
+2019:05:31 09:59:18.149 DEBUG --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : 11 mappings in 'requestMappingHandlerMapping' 
+2019:05:31 09:59:18.156 DEBUG --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Patterns [/webjars/**, /**] in 'resourceHandlerMapping' 
+2019:05:31 09:59:18.161 DEBUG --- [main] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice 
+2019:05:31 09:59:18.424 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path '' 
+2019:05:31 09:59:18.426 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : Started GaesipanApplication in 1.9 seconds (JVM running for 2.38) 
+2019:05:31 09:59:22.416 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019:05:31 09:59:22.416 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet' 
+2019:05:31 09:59:22.416 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Detected StandardServletMultipartResolver 
+2019:05:31 09:59:22.421 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data 
+2019:05:31 09:59:22.422 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 6 ms 
+2019:05:31 09:59:22.429 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : GET "/NoticeList", parameters={} 
+2019:05:31 09:59:22.432 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 09:59:22.446 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 09:59:22.457 INFO  --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting... 
+2019:05:31 09:59:22.546 INFO  --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed. 
+2019:05:31 09:59:22.580 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 09:59:22.588 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 09:59:22.926 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 09:59:22.946 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : GET "/favicon.ico", parameters={} 
+2019:05:31 09:59:22.947 DEBUG --- [http-nio-8080-exec-2] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler [class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], ServletContext resource [/], class path resource []] 
+2019:05:31 09:59:22.964 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 09:59:27.270 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : GET "/NoticeList?option=title&search=%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD", parameters={masked} 
+2019:05:31 09:59:27.272 DEBUG --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 09:59:27.278 INFO  --- [http-nio-8080-exec-3] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = title, search = 공지사항] 
+2019:05:31 09:59:27.298 INFO  --- [http-nio-8080-exec-3] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = title, search = 공지사항]] 
+2019:05:31 09:59:27.299 DEBUG --- [http-nio-8080-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 09:59:27.304 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 09:59:32.833 DEBUG --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet : GET "/list", parameters={} 
+2019:05:31 09:59:32.834 DEBUG --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 09:59:32.834 INFO  --- [http-nio-8080-exec-4] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 09:59:32.846 INFO  --- [http-nio-8080-exec-4] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 09:59:32.847 DEBUG --- [http-nio-8080-exec-4] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 09:59:32.868 DEBUG --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 09:59:33.954 DEBUG --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet : GET "/list", parameters={} 
+2019:05:31 09:59:33.955 DEBUG --- [http-nio-8080-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 09:59:33.956 INFO  --- [http-nio-8080-exec-6] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 09:59:33.970 INFO  --- [http-nio-8080-exec-6] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 09:59:33.971 DEBUG --- [http-nio-8080-exec-6] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 09:59:33.982 DEBUG --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 09:59:34.973 DEBUG --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet : GET "/NoticeList", parameters={} 
+2019:05:31 09:59:34.975 DEBUG --- [http-nio-8080-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 09:59:34.976 INFO  --- [http-nio-8080-exec-7] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 09:59:34.986 INFO  --- [http-nio-8080-exec-7] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 09:59:34.988 DEBUG --- [http-nio-8080-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 09:59:35.001 DEBUG --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:02:33.951 INFO  --- [RMI TCP Connection(11)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested. 
+2019:05:31 10:02:33.953 INFO  --- [RMI TCP Connection(11)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor : Shutting down ExecutorService 'applicationTaskExecutor' 
+2019:05:31 10:02:33.954 INFO  --- [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
+2019:05:31 10:02:33.958 INFO  --- [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 
+2019:05:31 10:02:37.308 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : Starting GaesipanApplication on kwon-PC with PID 14296 (started by kwon in C:\Users\kwon\Desktop\실습생 폴더\sts-bundle\workspace\gaesipan) 
+2019:05:31 10:02:37.310 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : No active profile set, falling back to default profiles: default 
+2019:05:31 10:02:38.140 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http) 
+2019:05:31 10:02:38.171 INFO  --- [main] o.a.catalina.core.StandardService : Starting service [Tomcat] 
+2019:05:31 10:02:38.172 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.19] 
+2019:05:31 10:02:38.261 INFO  --- [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2019:05:31 10:02:38.261 DEBUG --- [main] o.s.web.context.ContextLoader : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT] 
+2019:05:31 10:02:38.261 INFO  --- [main] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 794 ms 
+2019:05:31 10:02:38.509 DEBUG --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Patterns [/**/favicon.ico] in 'faviconHandlerMapping' 
+2019:05:31 10:02:38.644 INFO  --- [main] o.s.s.c.ThreadPoolTaskExecutor : Initializing ExecutorService 'applicationTaskExecutor' 
+2019:05:31 10:02:38.652 DEBUG --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice 
+2019:05:31 10:02:38.682 DEBUG --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : 11 mappings in 'requestMappingHandlerMapping' 
+2019:05:31 10:02:38.689 DEBUG --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Patterns [/webjars/**, /**] in 'resourceHandlerMapping' 
+2019:05:31 10:02:38.695 DEBUG --- [main] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice 
+2019:05:31 10:02:38.958 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path '' 
+2019:05:31 10:02:38.961 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : Started GaesipanApplication in 1.951 seconds (JVM running for 2.413) 
+2019:05:31 10:02:42.158 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019:05:31 10:02:42.159 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet' 
+2019:05:31 10:02:42.159 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Detected StandardServletMultipartResolver 
+2019:05:31 10:02:42.165 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data 
+2019:05:31 10:02:42.166 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 7 ms 
+2019:05:31 10:02:42.172 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : GET "/NoticeList", parameters={} 
+2019:05:31 10:02:42.175 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:02:42.190 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:02:42.203 INFO  --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting... 
+2019:05:31 10:02:42.287 INFO  --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed. 
+2019:05:31 10:02:42.324 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:02:42.331 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:02:42.673 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:02:42.693 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : GET "/favicon.ico", parameters={} 
+2019:05:31 10:02:42.695 DEBUG --- [http-nio-8080-exec-2] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler [class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], ServletContext resource [/], class path resource []] 
+2019:05:31 10:02:42.713 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:02:43.893 INFO  --- [http-nio-8080-exec-3] o.a.coyote.http11.Http11Processor : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level. 
+java.lang.IllegalArgumentException: Invalid character found in the request target. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:467)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:294)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2019:05:31 10:03:07.779 INFO  --- [RMI TCP Connection(2)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested. 
+2019:05:31 10:03:07.782 INFO  --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor : Shutting down ExecutorService 'applicationTaskExecutor' 
+2019:05:31 10:03:07.783 INFO  --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
+2019:05:31 10:03:07.790 INFO  --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 
+2019:05:31 10:03:11.182 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : Starting GaesipanApplication on kwon-PC with PID 13368 (started by kwon in C:\Users\kwon\Desktop\실습생 폴더\sts-bundle\workspace\gaesipan) 
+2019:05:31 10:03:11.184 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : No active profile set, falling back to default profiles: default 
+2019:05:31 10:03:12.009 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http) 
+2019:05:31 10:03:12.032 INFO  --- [main] o.a.catalina.core.StandardService : Starting service [Tomcat] 
+2019:05:31 10:03:12.032 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.19] 
+2019:05:31 10:03:12.109 INFO  --- [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2019:05:31 10:03:12.109 DEBUG --- [main] o.s.web.context.ContextLoader : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT] 
+2019:05:31 10:03:12.109 INFO  --- [main] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 771 ms 
+2019:05:31 10:03:12.337 DEBUG --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Patterns [/**/favicon.ico] in 'faviconHandlerMapping' 
+2019:05:31 10:03:12.425 INFO  --- [main] o.s.s.c.ThreadPoolTaskExecutor : Initializing ExecutorService 'applicationTaskExecutor' 
+2019:05:31 10:03:12.435 DEBUG --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice 
+2019:05:31 10:03:12.518 DEBUG --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : 11 mappings in 'requestMappingHandlerMapping' 
+2019:05:31 10:03:12.526 DEBUG --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Patterns [/webjars/**, /**] in 'resourceHandlerMapping' 
+2019:05:31 10:03:12.533 DEBUG --- [main] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice 
+2019:05:31 10:03:12.786 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path '' 
+2019:05:31 10:03:12.789 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : Started GaesipanApplication in 1.896 seconds (JVM running for 2.368) 
+2019:05:31 10:03:18.800 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019:05:31 10:03:18.801 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet' 
+2019:05:31 10:03:18.801 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Detected StandardServletMultipartResolver 
+2019:05:31 10:03:18.806 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data 
+2019:05:31 10:03:18.807 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 6 ms 
+2019:05:31 10:03:18.814 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : GET "/NoticeList", parameters={} 
+2019:05:31 10:03:18.817 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:03:18.833 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:03:18.844 INFO  --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting... 
+2019:05:31 10:03:18.928 INFO  --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed. 
+2019:05:31 10:03:18.964 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:03:18.970 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:03:19.297 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:03:19.313 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : GET "/favicon.ico", parameters={} 
+2019:05:31 10:03:19.315 DEBUG --- [http-nio-8080-exec-2] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler [class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], ServletContext resource [/], class path resource []] 
+2019:05:31 10:03:19.336 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:03:20.046 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : GET "/NoticeList?page=1&perPageNum=18&option=null&search=null", parameters={masked} 
+2019:05:31 10:03:20.048 DEBUG --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:03:20.056 INFO  --- [http-nio-8080-exec-3] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:03:20.080 INFO  --- [http-nio-8080-exec-3] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:03:20.081 DEBUG --- [http-nio-8080-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:03:20.088 ERROR --- [http-nio-8080-exec-3] org.thymeleaf.TemplateEngine : [THYMELEAF][http-nio-8080-exec-3] Exception processing template "NoticeList": Only variable expressions returning numbers or booleans are allowed in this context, any other datatypes are not trusted in the context of this expression, including Strings or any other object that could be rendered as a text literal. A typical case is HTML attributes for event handlers (e.g. "onload"), in which textual data from variables should better be output to "data-*" attributes and then read from the event handler. (template: "NoticeList" - line 149, col 76) 
+org.thymeleaf.exceptions.TemplateProcessingException: Only variable expressions returning numbers or booleans are allowed in this context, any other datatypes are not trusted in the context of this expression, including Strings or any other object that could be rendered as a text literal. A typical case is HTML attributes for event handlers (e.g. "onload"), in which textual data from variables should better be output to "data-*" attributes and then read from the event handler. (template: "NoticeList" - line 149, col 76)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:181)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:96)
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112)
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:89)
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112)
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:89)
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112)
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:89)
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor.doProcess(StandardDOMEventAttributeTagProcessor.java:214)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.StandaloneElementTag.beHandled(StandaloneElementTag.java:228)
+	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:592)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1371)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1117)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1056)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2019:05:31 10:03:20.089 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : Error rendering view [org.thymeleaf.spring5.view.ThymeleafView@7d8be1c3] 
+org.thymeleaf.exceptions.TemplateProcessingException: Only variable expressions returning numbers or booleans are allowed in this context, any other datatypes are not trusted in the context of this expression, including Strings or any other object that could be rendered as a text literal. A typical case is HTML attributes for event handlers (e.g. "onload"), in which textual data from variables should better be output to "data-*" attributes and then read from the event handler. (template: "NoticeList" - line 149, col 76)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:181)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:96)
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112)
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:89)
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112)
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:89)
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112)
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:89)
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor.doProcess(StandardDOMEventAttributeTagProcessor.java:214)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.StandaloneElementTag.beHandled(StandaloneElementTag.java:228)
+	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:592)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1371)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1117)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1056)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2019:05:31 10:03:20.090 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : Failed to complete request: org.thymeleaf.exceptions.TemplateProcessingException: Only variable expressions returning numbers or booleans are allowed in this context, any other datatypes are not trusted in the context of this expression, including Strings or any other object that could be rendered as a text literal. A typical case is HTML attributes for event handlers (e.g. "onload"), in which textual data from variables should better be output to "data-*" attributes and then read from the event handler. (template: "NoticeList" - line 149, col 76) 
+2019:05:31 10:03:20.091 ERROR --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[.[dispatcherServlet] : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateProcessingException: Only variable expressions returning numbers or booleans are allowed in this context, any other datatypes are not trusted in the context of this expression, including Strings or any other object that could be rendered as a text literal. A typical case is HTML attributes for event handlers (e.g. "onload"), in which textual data from variables should better be output to "data-*" attributes and then read from the event handler. (template: "NoticeList" - line 149, col 76)] with root cause 
+org.thymeleaf.exceptions.TemplateProcessingException: Only variable expressions returning numbers or booleans are allowed in this context, any other datatypes are not trusted in the context of this expression, including Strings or any other object that could be rendered as a text literal. A typical case is HTML attributes for event handlers (e.g. "onload"), in which textual data from variables should better be output to "data-*" attributes and then read from the event handler. (template: "NoticeList" - line 149, col 76)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:181)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:96)
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112)
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:89)
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112)
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:89)
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112)
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:89)
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor.doProcess(StandardDOMEventAttributeTagProcessor.java:214)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.StandaloneElementTag.beHandled(StandaloneElementTag.java:228)
+	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:592)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1371)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1117)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1056)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2019:05:31 10:03:20.096 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : "INCLUDE" dispatch for GET "/error?page=1&perPageNum=18&option=null&search=null", parameters={masked} 
+2019:05:31 10:03:20.098 DEBUG --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2019:05:31 10:03:20.103 DEBUG --- [http-nio-8080-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, text/html;q=0.8] 
+2019:05:31 10:03:20.103 ERROR --- [http-nio-8080-exec-3] o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView : Cannot render error page for request [/NoticeList] and exception [Only variable expressions returning numbers or booleans are allowed in this context, any other datatypes are not trusted in the context of this expression, including Strings or any other object that could be rendered as a text literal. A typical case is HTML attributes for event handlers (e.g. "onload"), in which textual data from variables should better be output to "data-*" attributes and then read from the event handler. (template: "NoticeList" - line 149, col 76)] as the response has already been committed. As a result, the response may have the wrong status code. 
+2019:05:31 10:03:20.103 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : Exiting from "INCLUDE" dispatch, status 200 
+2019:05:31 10:04:38.525 INFO  --- [RMI TCP Connection(9)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested. 
+2019:05:31 10:04:38.529 INFO  --- [RMI TCP Connection(9)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor : Shutting down ExecutorService 'applicationTaskExecutor' 
+2019:05:31 10:04:38.531 INFO  --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
+2019:05:31 10:04:38.543 INFO  --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 
+2019:05:31 10:04:41.935 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : Starting GaesipanApplication on kwon-PC with PID 14200 (started by kwon in C:\Users\kwon\Desktop\실습생 폴더\sts-bundle\workspace\gaesipan) 
+2019:05:31 10:04:41.937 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : No active profile set, falling back to default profiles: default 
+2019:05:31 10:04:42.822 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http) 
+2019:05:31 10:04:42.855 INFO  --- [main] o.a.catalina.core.StandardService : Starting service [Tomcat] 
+2019:05:31 10:04:42.855 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.19] 
+2019:05:31 10:04:42.938 INFO  --- [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2019:05:31 10:04:42.938 DEBUG --- [main] o.s.web.context.ContextLoader : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT] 
+2019:05:31 10:04:42.938 INFO  --- [main] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 839 ms 
+2019:05:31 10:04:43.159 DEBUG --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Patterns [/**/favicon.ico] in 'faviconHandlerMapping' 
+2019:05:31 10:04:43.287 INFO  --- [main] o.s.s.c.ThreadPoolTaskExecutor : Initializing ExecutorService 'applicationTaskExecutor' 
+2019:05:31 10:04:43.296 DEBUG --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice 
+2019:05:31 10:04:43.328 DEBUG --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : 11 mappings in 'requestMappingHandlerMapping' 
+2019:05:31 10:04:43.336 DEBUG --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Patterns [/webjars/**, /**] in 'resourceHandlerMapping' 
+2019:05:31 10:04:43.342 DEBUG --- [main] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice 
+2019:05:31 10:04:43.640 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path '' 
+2019:05:31 10:04:43.644 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : Started GaesipanApplication in 2.005 seconds (JVM running for 2.467) 
+2019:05:31 10:04:43.715 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019:05:31 10:04:43.716 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet' 
+2019:05:31 10:04:43.716 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Detected StandardServletMultipartResolver 
+2019:05:31 10:04:43.726 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data 
+2019:05:31 10:04:43.726 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 10 ms 
+2019:05:31 10:04:43.733 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : GET "/NoticeList?page=1&perPageNum=18&option=null&search=null", parameters={masked} 
+2019:05:31 10:04:43.736 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:04:43.753 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:04:43.764 INFO  --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting... 
+2019:05:31 10:04:43.859 INFO  --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed. 
+2019:05:31 10:04:43.902 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:04:43.908 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:04:44.196 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:04:44.233 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : GET "/favicon.ico", parameters={} 
+2019:05:31 10:04:44.235 DEBUG --- [http-nio-8080-exec-3] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler [class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], ServletContext resource [/], class path resource []] 
+2019:05:31 10:04:44.254 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:04:45.870 DEBUG --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet : GET "/list", parameters={} 
+2019:05:31 10:04:45.870 DEBUG --- [http-nio-8080-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:04:45.871 INFO  --- [http-nio-8080-exec-7] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:04:45.883 INFO  --- [http-nio-8080-exec-7] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:04:45.885 DEBUG --- [http-nio-8080-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:04:45.908 DEBUG --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:04:49.146 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : GET "/NoticeList", parameters={} 
+2019:05:31 10:04:49.147 DEBUG --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:04:49.148 INFO  --- [http-nio-8080-exec-2] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:04:49.154 INFO  --- [http-nio-8080-exec-2] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:04:49.154 DEBUG --- [http-nio-8080-exec-2] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:04:49.198 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:05:08.388 DEBUG --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet : GET "/NoticeList?option=title&search=%21", parameters={masked} 
+2019:05:31 10:05:08.389 DEBUG --- [http-nio-8080-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:05:08.390 INFO  --- [http-nio-8080-exec-10] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = title, search = !] 
+2019:05:31 10:05:08.393 INFO  --- [http-nio-8080-exec-10] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = title, search = !]] 
+2019:05:31 10:05:08.394 DEBUG --- [http-nio-8080-exec-10] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:05:08.397 DEBUG --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:05:11.032 DEBUG --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet : GET "/NoticeList?option=title&search=%3F", parameters={masked} 
+2019:05:31 10:05:11.033 DEBUG --- [http-nio-8080-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:05:11.033 INFO  --- [http-nio-8080-exec-8] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = title, search = ?] 
+2019:05:31 10:05:11.037 INFO  --- [http-nio-8080-exec-8] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = title, search = ?]] 
+2019:05:31 10:05:11.038 DEBUG --- [http-nio-8080-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:05:11.041 DEBUG --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:05:13.523 DEBUG --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet : GET "/NoticeList?option=title&search=%40", parameters={masked} 
+2019:05:31 10:05:13.524 DEBUG --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:05:13.525 INFO  --- [http-nio-8080-exec-4] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = title, search = @] 
+2019:05:31 10:05:13.530 INFO  --- [http-nio-8080-exec-4] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = title, search = @]] 
+2019:05:31 10:05:13.531 DEBUG --- [http-nio-8080-exec-4] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:05:13.535 DEBUG --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:05:20.279 DEBUG --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet : GET "/NoticeList?option=title&search=%E2%98%85", parameters={masked} 
+2019:05:31 10:05:20.280 DEBUG --- [http-nio-8080-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:05:20.281 INFO  --- [http-nio-8080-exec-9] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = title, search = ★] 
+2019:05:31 10:05:20.288 INFO  --- [http-nio-8080-exec-9] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = title, search = ★]] 
+2019:05:31 10:05:20.289 DEBUG --- [http-nio-8080-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:05:20.294 DEBUG --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:05:36.867 INFO  --- [RMI TCP Connection(7)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested. 
+2019:05:31 10:05:36.869 INFO  --- [RMI TCP Connection(7)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor : Shutting down ExecutorService 'applicationTaskExecutor' 
+2019:05:31 10:05:36.870 INFO  --- [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
+2019:05:31 10:05:36.874 INFO  --- [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 
+2019:05:31 10:05:40.308 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : Starting GaesipanApplication on kwon-PC with PID 12416 (started by kwon in C:\Users\kwon\Desktop\실습생 폴더\sts-bundle\workspace\gaesipan) 
+2019:05:31 10:05:40.310 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : No active profile set, falling back to default profiles: default 
+2019:05:31 10:05:41.169 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http) 
+2019:05:31 10:05:41.193 INFO  --- [main] o.a.catalina.core.StandardService : Starting service [Tomcat] 
+2019:05:31 10:05:41.193 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.19] 
+2019:05:31 10:05:41.275 INFO  --- [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2019:05:31 10:05:41.275 DEBUG --- [main] o.s.web.context.ContextLoader : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT] 
+2019:05:31 10:05:41.275 INFO  --- [main] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 800 ms 
+2019:05:31 10:05:41.506 DEBUG --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Patterns [/**/favicon.ico] in 'faviconHandlerMapping' 
+2019:05:31 10:05:41.593 INFO  --- [main] o.s.s.c.ThreadPoolTaskExecutor : Initializing ExecutorService 'applicationTaskExecutor' 
+2019:05:31 10:05:41.602 DEBUG --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice 
+2019:05:31 10:05:41.690 DEBUG --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : 11 mappings in 'requestMappingHandlerMapping' 
+2019:05:31 10:05:41.697 DEBUG --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Patterns [/webjars/**, /**] in 'resourceHandlerMapping' 
+2019:05:31 10:05:41.702 DEBUG --- [main] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice 
+2019:05:31 10:05:41.970 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path '' 
+2019:05:31 10:05:41.973 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : Started GaesipanApplication in 1.961 seconds (JVM running for 2.502) 
+2019:05:31 10:05:42.003 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019:05:31 10:05:42.003 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet' 
+2019:05:31 10:05:42.003 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Detected StandardServletMultipartResolver 
+2019:05:31 10:05:42.007 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data 
+2019:05:31 10:05:42.007 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 4 ms 
+2019:05:31 10:05:42.013 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : GET "/list", parameters={} 
+2019:05:31 10:05:42.016 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:05:42.030 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:05:42.040 INFO  --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting... 
+2019:05:31 10:05:42.124 INFO  --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed. 
+2019:05:31 10:05:42.166 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:05:42.176 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:05:42.676 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:05:44.349 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : GET "/NoticeList", parameters={} 
+2019:05:31 10:05:44.352 DEBUG --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:05:44.354 INFO  --- [http-nio-8080-exec-2] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:05:44.361 INFO  --- [http-nio-8080-exec-2] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:05:44.362 DEBUG --- [http-nio-8080-exec-2] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:05:44.429 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:05:55.537 DEBUG --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet : GET "/list?page=1&perPageNum=18", parameters={masked} 
+2019:05:31 10:05:55.537 DEBUG --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:05:55.541 INFO  --- [http-nio-8080-exec-4] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:05:55.548 INFO  --- [http-nio-8080-exec-4] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:05:55.550 DEBUG --- [http-nio-8080-exec-4] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:05:55.557 DEBUG --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:05:57.618 DEBUG --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet : GET "/list", parameters={} 
+2019:05:31 10:05:57.619 DEBUG --- [http-nio-8080-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:05:57.619 INFO  --- [http-nio-8080-exec-5] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:05:57.631 INFO  --- [http-nio-8080-exec-5] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:05:57.632 DEBUG --- [http-nio-8080-exec-5] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:05:57.644 DEBUG --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:05:59.053 DEBUG --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet : GET "/NoticeList", parameters={} 
+2019:05:31 10:05:59.054 DEBUG --- [http-nio-8080-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:05:59.056 INFO  --- [http-nio-8080-exec-6] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:05:59.065 INFO  --- [http-nio-8080-exec-6] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:05:59.066 DEBUG --- [http-nio-8080-exec-6] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:05:59.082 DEBUG --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:06:00.077 DEBUG --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet : GET "/list?page=1&perPageNum=18", parameters={masked} 
+2019:05:31 10:06:00.079 DEBUG --- [http-nio-8080-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:06:00.080 INFO  --- [http-nio-8080-exec-7] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:06:00.091 INFO  --- [http-nio-8080-exec-7] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:06:00.092 DEBUG --- [http-nio-8080-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:06:00.103 DEBUG --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:06:03.750 DEBUG --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet : GET "/list?page=1&perPageNum=18", parameters={masked} 
+2019:05:31 10:06:03.750 DEBUG --- [http-nio-8080-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:06:03.751 INFO  --- [http-nio-8080-exec-8] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:06:03.758 INFO  --- [http-nio-8080-exec-8] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:06:03.759 DEBUG --- [http-nio-8080-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:06:03.765 DEBUG --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:06:04.344 DEBUG --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet : GET "/list?page=1&perPageNum=18", parameters={masked} 
+2019:05:31 10:06:04.344 DEBUG --- [http-nio-8080-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:06:04.345 INFO  --- [http-nio-8080-exec-9] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:06:04.351 INFO  --- [http-nio-8080-exec-9] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:06:04.351 DEBUG --- [http-nio-8080-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:06:04.356 DEBUG --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:06:04.658 DEBUG --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet : GET "/list?page=1&perPageNum=18", parameters={masked} 
+2019:05:31 10:06:04.659 DEBUG --- [http-nio-8080-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:06:04.660 INFO  --- [http-nio-8080-exec-10] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:06:04.670 INFO  --- [http-nio-8080-exec-10] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:06:04.672 DEBUG --- [http-nio-8080-exec-10] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:06:04.682 DEBUG --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:06:52.343 INFO  --- [RMI TCP Connection(6)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested. 
+2019:05:31 10:06:52.346 INFO  --- [RMI TCP Connection(6)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor : Shutting down ExecutorService 'applicationTaskExecutor' 
+2019:05:31 10:06:52.347 INFO  --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
+2019:05:31 10:06:52.351 INFO  --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 
+2019:05:31 10:06:55.711 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : Starting GaesipanApplication on kwon-PC with PID 13724 (started by kwon in C:\Users\kwon\Desktop\실습생 폴더\sts-bundle\workspace\gaesipan) 
+2019:05:31 10:06:55.713 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : No active profile set, falling back to default profiles: default 
+2019:05:31 10:06:56.533 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http) 
+2019:05:31 10:06:56.564 INFO  --- [main] o.a.catalina.core.StandardService : Starting service [Tomcat] 
+2019:05:31 10:06:56.565 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.19] 
+2019:05:31 10:06:56.645 INFO  --- [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2019:05:31 10:06:56.645 DEBUG --- [main] o.s.web.context.ContextLoader : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT] 
+2019:05:31 10:06:56.646 INFO  --- [main] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 785 ms 
+2019:05:31 10:06:56.860 DEBUG --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Patterns [/**/favicon.ico] in 'faviconHandlerMapping' 
+2019:05:31 10:06:56.982 INFO  --- [main] o.s.s.c.ThreadPoolTaskExecutor : Initializing ExecutorService 'applicationTaskExecutor' 
+2019:05:31 10:06:56.990 DEBUG --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice 
+2019:05:31 10:06:57.022 DEBUG --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : 11 mappings in 'requestMappingHandlerMapping' 
+2019:05:31 10:06:57.030 DEBUG --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Patterns [/webjars/**, /**] in 'resourceHandlerMapping' 
+2019:05:31 10:06:57.036 DEBUG --- [main] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice 
+2019:05:31 10:06:57.297 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path '' 
+2019:05:31 10:06:57.299 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : Started GaesipanApplication in 1.882 seconds (JVM running for 2.348) 
+2019:05:31 10:07:01.860 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019:05:31 10:07:01.860 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet' 
+2019:05:31 10:07:01.860 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Detected StandardServletMultipartResolver 
+2019:05:31 10:07:01.865 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data 
+2019:05:31 10:07:01.865 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 5 ms 
+2019:05:31 10:07:01.872 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : GET "/list?page=1&perPageNum=18", parameters={masked} 
+2019:05:31 10:07:01.874 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:07:01.891 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:07:01.902 INFO  --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting... 
+2019:05:31 10:07:01.988 INFO  --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed. 
+2019:05:31 10:07:02.030 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:07:02.036 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:07:02.324 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:07:02.365 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : GET "/favicon.ico", parameters={} 
+2019:05:31 10:07:02.366 DEBUG --- [http-nio-8080-exec-2] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler [class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], ServletContext resource [/], class path resource []] 
+2019:05:31 10:07:02.386 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:07:02.937 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : GET "/NoticeList", parameters={} 
+2019:05:31 10:07:02.940 DEBUG --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:07:02.942 INFO  --- [http-nio-8080-exec-3] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:07:02.957 INFO  --- [http-nio-8080-exec-3] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:07:02.959 DEBUG --- [http-nio-8080-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:07:03.047 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:07:04.387 DEBUG --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet : GET "/NoticeList?page=1&perPageNum=18", parameters={masked} 
+2019:05:31 10:07:04.388 DEBUG --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:07:04.390 INFO  --- [http-nio-8080-exec-4] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:07:04.398 INFO  --- [http-nio-8080-exec-4] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:07:04.399 DEBUG --- [http-nio-8080-exec-4] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:07:04.414 DEBUG --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:07:04.911 DEBUG --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet : GET "/NoticeList?page=1&perPageNum=18", parameters={masked} 
+2019:05:31 10:07:04.911 DEBUG --- [http-nio-8080-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:07:04.911 INFO  --- [http-nio-8080-exec-5] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:07:04.917 INFO  --- [http-nio-8080-exec-5] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:07:04.918 DEBUG --- [http-nio-8080-exec-5] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:07:04.926 DEBUG --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:07:09.222 DEBUG --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet : GET "/list", parameters={} 
+2019:05:31 10:07:09.223 DEBUG --- [http-nio-8080-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:07:09.224 INFO  --- [http-nio-8080-exec-6] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:07:09.231 INFO  --- [http-nio-8080-exec-6] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:07:09.232 DEBUG --- [http-nio-8080-exec-6] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:07:09.239 DEBUG --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:07:14.086 DEBUG --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet : GET "/NoticeList", parameters={} 
+2019:05:31 10:07:14.087 DEBUG --- [http-nio-8080-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:07:14.088 INFO  --- [http-nio-8080-exec-8] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:07:14.096 INFO  --- [http-nio-8080-exec-8] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:07:14.097 DEBUG --- [http-nio-8080-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:07:14.110 DEBUG --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 10:07:15.522 DEBUG --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet : GET "/list", parameters={} 
+2019:05:31 10:07:15.522 DEBUG --- [http-nio-8080-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 10:07:15.523 INFO  --- [http-nio-8080-exec-9] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 10:07:15.529 INFO  --- [http-nio-8080-exec-9] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 10:07:15.530 DEBUG --- [http-nio-8080-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 10:07:15.535 DEBUG --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 13:28:53.244 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : GET "/NoticeList", parameters={} 
+2019:05:31 13:28:53.247 DEBUG --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 13:28:53.248 INFO  --- [http-nio-8080-exec-2] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 13:28:53.259 INFO  --- [http-nio-8080-exec-2] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 13:28:53.261 DEBUG --- [http-nio-8080-exec-2] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 13:28:53.269 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 13:28:59.284 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : GET "/list", parameters={} 
+2019:05:31 13:28:59.285 DEBUG --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 13:28:59.285 INFO  --- [http-nio-8080-exec-3] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 13:28:59.294 INFO  --- [http-nio-8080-exec-3] c.g.pack.Controller.AllController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 13:28:59.294 DEBUG --- [http-nio-8080-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 13:28:59.299 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 13:29:01.727 DEBUG --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet : GET "/NoticeList", parameters={} 
+2019:05:31 13:29:01.728 DEBUG --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.AllController.NoticeList(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:05:31 13:29:01.729 INFO  --- [http-nio-8080-exec-4] c.g.pack.Controller.AllController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:05:31 13:29:01.735 INFO  --- [http-nio-8080-exec-4] c.g.pack.Controller.AllController : PageMaker [totalCount=6, startPage=1, endPage=1, prev=false, next=false, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:05:31 13:29:01.736 DEBUG --- [http-nio-8080-exec-4] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:05:31 13:29:01.744 DEBUG --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:05:31 15:06:37.017 INFO  --- [RMI TCP Connection(307)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested. 
+2019:05:31 15:06:37.022 INFO  --- [RMI TCP Connection(307)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor : Shutting down ExecutorService 'applicationTaskExecutor' 
+2019:05:31 15:06:37.023 INFO  --- [RMI TCP Connection(307)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
+2019:05:31 15:06:37.032 INFO  --- [RMI TCP Connection(307)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 

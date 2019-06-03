@@ -12,7 +12,7 @@
 	그리고 Thymeleaf에 익숙하다면 이미 알겠지만 Controller에서 ModelAttribute로 지정했던 "loginForm"이 th:object 속성에 지정되어야 하며 loginForm에는 id, password property가 있어야 한다. -->
 	<form action="#" th:action="@{/authenticate}" method="post" th:object="${loginVO}">
 		<div>
-			Id: <input type="id" th:field="*{id}" autofocus />
+			Id: <input type="text" th:field="*{id}" autofocus />
 		</div>
 		<div>
 			Password: <input type="password" th:field="*{password}" />

@@ -11,7 +11,7 @@ import com.gaesipan.pack.DTO.LoginVO;
 public class UserController {
 
 	@GetMapping("/login")	//SecurityConfig에서 경로 설정 가능
-    public String login(@ModelAttribute("loginForm") LoginVO loginVO, Model model) {
+    public String login(@ModelAttribute("loginVO") LoginVO loginVO, Model model) {
         return "login";
     }
 	

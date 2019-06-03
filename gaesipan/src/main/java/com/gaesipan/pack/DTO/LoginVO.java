@@ -2,8 +2,8 @@ package com.gaesipan.pack.DTO;
 
 public class LoginVO {
 
-	private String id;
-	private String password;
+	String id;
+	String password;
 	
 	public String getId() {
 		return id;
@@ -17,4 +17,5 @@ public class LoginVO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 }
