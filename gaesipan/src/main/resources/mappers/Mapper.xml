@@ -225,7 +225,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			Member_TB 
 		WHERE 
 			id = #{id} AND
-			password = #{password};
+			password = #{password} AND
+			goust = 'N';
     </select>
     
 </mapper>      

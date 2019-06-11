@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -105,11 +105,23 @@
 		</form>
 		
 		<div class="a" style="margin-top: 5px">
-			<input type="button" class="btn btn-primary btn-sm raised" value="공지사항 관리" onClick="location.href='/hard/NoticeList'">
+			<span sec:authorize="hasRole('ROLE_ADMIN')"><input type="button" class="btn btn-primary btn-sm raised" value="공지사항 관리" onClick="location.href='/hard/NoticeList'"></span>
 			<input type="button" class="btn btn-primary btn-sm raised" value="로그인" onClick="location.href='/login'">
 			<input type="button" class="btn btn-primary btn-sm raised" value="홈으로" onClick="location.href='/list'">
 		</div>
 
+</div>
+
+
+<div sec:authorize="isAuthenticated()">
+	<span th:text="${#authentication.principal.nickname}"></span><br />
+  Name: <span sec:authentication="name">SomeName</span><br /><!-- userDTO.toString() -->
+  Principal: <span sec:authentication="principal">PrincipalString</span><br /><!-- userDTO -->
+  Principal.id: <span sec:authentication="principal.id">id</span><br />
+  Principal.nickname: <span sec:authentication="principal.nickname">nickname</span><br />
+  HasRole(USER): <span sec:authorize="hasRole('ROLE_USER')">YES</span><br />
+  HasRole(USER): <span sec:authorize="principal.id=='qwer'">YES</span><br />
+  HasRole(ADMIN): <span sec:authorize="hasRole('ROLE_ADMIN')">YES</span><br />
 </div>
 	
 </body>

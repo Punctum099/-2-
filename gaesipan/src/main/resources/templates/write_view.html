@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -38,6 +38,7 @@ $(function(){
       //저장버튼 클릭시 form 전송
       $("#input").click(function(){
           oEditors.getById["contents"].exec("UPDATE_CONTENTS_FIELD", []);
+          $("#author").val($("#nickname").text());
           $("#frm").submit();
       });    
 });
@@ -46,10 +47,11 @@ $(function(){
 </head>
 <body>
 	<table width="620" cellpadding="0" cellspacing="0" border="1">
-		<form id="frm" action="/write" method="post">
+		<form id="frm" th:action="@{/normal/write}" method="post">
 			<tr>
 				<td> 이름 </td>
-				<td> <input type="text" name="author" size = "50"> </td>
+				<input type="hidden" name="author" id="author">
+				<td sec:authentication="principal.nickname" id="nickname"></td>
 			</tr>
 			<tr>
 				<td> 제목 </td>

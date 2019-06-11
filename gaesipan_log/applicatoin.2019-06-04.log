@@ -1,0 +1,113 @@
+2019:06:04 09:15:12.857 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : Starting GaesipanApplication on kwon-PC with PID 1304 (started by kwon in C:\Users\kwon\Desktop\실습생 폴더\sts-bundle\workspace\gaesipan) 
+2019:06:04 09:15:12.862 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : No active profile set, falling back to default profiles: default 
+2019:06:04 09:15:13.812 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port(s): 8080 (http) 
+2019:06:04 09:15:13.843 INFO  --- [main] o.a.catalina.core.StandardService : Starting service [Tomcat] 
+2019:06:04 09:15:13.843 INFO  --- [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.19] 
+2019:06:04 09:15:13.951 INFO  --- [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2019:06:04 09:15:13.951 DEBUG --- [main] o.s.web.context.ContextLoader : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT] 
+2019:06:04 09:15:13.952 INFO  --- [main] o.s.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 927 ms 
+2019:06:04 09:15:14.339 INFO  --- [main] o.s.s.w.DefaultSecurityFilterChain : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4bbb49b0, org.springframework.security.web.context.SecurityContextPersistenceFilter@7dff6d05, org.springframework.security.web.header.HeaderWriterFilter@6d2dc9d2, org.springframework.security.web.csrf.CsrfFilter@1639f93a, org.springframework.security.web.authentication.logout.LogoutFilter@45f421c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@38320e34, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@34fe326d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36b310aa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@f096f37, org.springframework.security.web.session.SessionManagementFilter@b2f4ece, org.springframework.security.web.access.ExceptionTranslationFilter@56681eaf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@367b22e5] 
+2019:06:04 09:15:14.375 DEBUG --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Patterns [/**/favicon.ico] in 'faviconHandlerMapping' 
+2019:06:04 09:15:14.441 INFO  --- [main] o.s.s.c.ThreadPoolTaskExecutor : Initializing ExecutorService 'applicationTaskExecutor' 
+2019:06:04 09:15:14.449 DEBUG --- [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice 
+2019:06:04 09:15:14.485 DEBUG --- [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping' 
+2019:06:04 09:15:14.493 DEBUG --- [main] o.s.w.s.h.SimpleUrlHandlerMapping : Patterns [/webjars/**, /**] in 'resourceHandlerMapping' 
+2019:06:04 09:15:14.499 DEBUG --- [main] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice 
+2019:06:04 09:15:14.773 INFO  --- [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path '' 
+2019:06:04 09:15:14.776 INFO  --- [main] c.gaesipan.pack.GaesipanApplication : Started GaesipanApplication in 2.212 seconds (JVM running for 3.515) 
+2019:06:04 09:15:58.974 INFO  --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019:06:04 09:15:58.974 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet' 
+2019:06:04 09:15:58.975 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Detected StandardServletMultipartResolver 
+2019:06:04 09:15:58.979 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data 
+2019:06:04 09:15:58.980 INFO  --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 6 ms 
+2019:06:04 09:15:58.997 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : GET "/list", parameters={} 
+2019:06:04 09:15:59.000 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.BoardController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:06:04 09:15:59.015 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.BoardController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:06:04 09:15:59.027 INFO  --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting... 
+2019:06:04 09:15:59.120 INFO  --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed. 
+2019:06:04 09:15:59.167 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.BoardController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:06:04 09:15:59.186 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:06:04 09:15:59.517 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:00.065 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : GET "/css/buttons.css", parameters={} 
+2019:06:04 09:16:00.068 DEBUG --- [http-nio-8080-exec-2] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler ["classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/", "/"] 
+2019:06:04 09:16:00.073 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : Completed 304 NOT_MODIFIED 
+2019:06:04 09:16:00.149 DEBUG --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet : GET "/login", parameters={} 
+2019:06:04 09:16:00.149 DEBUG --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.UserController.login(com.gaesipan.pack.DTO.LoginVO,org.springframework.ui.Model) 
+2019:06:04 09:16:00.150 DEBUG --- [http-nio-8080-exec-4] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*;q=0.8' given [image/webp, image/apng, image/*, */*;q=0.8] 
+2019:06:04 09:16:00.171 DEBUG --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:02.218 DEBUG --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet : GET "/list", parameters={} 
+2019:06:04 09:16:02.219 DEBUG --- [http-nio-8080-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.BoardController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:06:04 09:16:02.220 INFO  --- [http-nio-8080-exec-5] c.g.pack.Controller.BoardController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:06:04 09:16:02.234 INFO  --- [http-nio-8080-exec-5] c.g.pack.Controller.BoardController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:06:04 09:16:02.236 DEBUG --- [http-nio-8080-exec-5] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:06:04 09:16:02.251 DEBUG --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:02.261 DEBUG --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet : GET "/css/buttons.css", parameters={} 
+2019:06:04 09:16:02.262 DEBUG --- [http-nio-8080-exec-6] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler ["classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/", "/"] 
+2019:06:04 09:16:02.278 DEBUG --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:02.296 DEBUG --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet : GET "/login", parameters={} 
+2019:06:04 09:16:02.296 DEBUG --- [http-nio-8080-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.UserController.login(com.gaesipan.pack.DTO.LoginVO,org.springframework.ui.Model) 
+2019:06:04 09:16:02.297 DEBUG --- [http-nio-8080-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*;q=0.8' given [image/webp, image/apng, image/*, */*;q=0.8] 
+2019:06:04 09:16:02.299 DEBUG --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:04.264 DEBUG --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet : GET "/login", parameters={} 
+2019:06:04 09:16:04.265 DEBUG --- [http-nio-8080-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.UserController.login(com.gaesipan.pack.DTO.LoginVO,org.springframework.ui.Model) 
+2019:06:04 09:16:04.267 DEBUG --- [http-nio-8080-exec-10] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:06:04 09:16:04.269 DEBUG --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:04.303 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : GET "/login", parameters={} 
+2019:06:04 09:16:04.304 DEBUG --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.UserController.login(com.gaesipan.pack.DTO.LoginVO,org.springframework.ui.Model) 
+2019:06:04 09:16:04.306 DEBUG --- [http-nio-8080-exec-2] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*;q=0.8' given [image/webp, image/apng, image/*, */*;q=0.8] 
+2019:06:04 09:16:04.308 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:10.094 DEBUG --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet : GET "/normal/write_view?listType=Normal", parameters={masked} 
+2019:06:04 09:16:10.095 DEBUG --- [http-nio-8080-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.BoardController.write_view(java.lang.String,org.springframework.ui.Model) 
+2019:06:04 09:16:10.102 DEBUG --- [http-nio-8080-exec-5] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:06:04 09:16:10.106 DEBUG --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:10.168 DEBUG --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet : GET "/favicon.ico", parameters={} 
+2019:06:04 09:16:10.168 DEBUG --- [http-nio-8080-exec-7] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler [class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], ServletContext resource [/], class path resource []] 
+2019:06:04 09:16:10.169 DEBUG --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet : GET "/normal/SE2/SmartEditor2Skin.html", parameters={} 
+2019:06:04 09:16:10.171 DEBUG --- [http-nio-8080-exec-6] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler ["classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/", "/"] 
+2019:06:04 09:16:10.173 DEBUG --- [http-nio-8080-exec-6] o.s.w.s.r.ResourceHttpRequestHandler : Resource not found 
+2019:06:04 09:16:10.173 DEBUG --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet : Completed 404 NOT_FOUND 
+2019:06:04 09:16:10.176 DEBUG --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet : "ERROR" dispatch for GET "/error", parameters={} 
+2019:06:04 09:16:10.177 DEBUG --- [http-nio-8080-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2019:06:04 09:16:10.178 DEBUG --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:10.186 DEBUG --- [http-nio-8080-exec-6] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, text/html;q=0.8] 
+2019:06:04 09:16:10.186 DEBUG --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet : Exiting from "ERROR" dispatch, status 404 
+2019:06:04 09:16:12.499 DEBUG --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet : GET "/list", parameters={} 
+2019:06:04 09:16:12.502 DEBUG --- [http-nio-8080-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.BoardController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:06:04 09:16:12.503 INFO  --- [http-nio-8080-exec-8] c.g.pack.Controller.BoardController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:06:04 09:16:12.514 INFO  --- [http-nio-8080-exec-8] c.g.pack.Controller.BoardController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:06:04 09:16:12.515 DEBUG --- [http-nio-8080-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:06:04 09:16:12.529 DEBUG --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:12.540 DEBUG --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet : GET "/css/buttons.css", parameters={} 
+2019:06:04 09:16:12.541 DEBUG --- [http-nio-8080-exec-9] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler ["classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/", "/"] 
+2019:06:04 09:16:12.543 DEBUG --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:12.566 DEBUG --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet : GET "/favicon.ico", parameters={} 
+2019:06:04 09:16:12.567 DEBUG --- [http-nio-8080-exec-10] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler [class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], ServletContext resource [/], class path resource []] 
+2019:06:04 09:16:12.570 DEBUG --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:16.609 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : GET "/content?seq=273&page=1&perPageNum=18", parameters={masked} 
+2019:06:04 09:16:16.611 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.BoardController.content(com.gaesipan.pack.DTO.Criteria,java.lang.String,org.springframework.ui.Model) 
+2019:06:04 09:16:16.620 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.BoardController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:06:04 09:16:16.621 INFO  --- [http-nio-8080-exec-1] c.g.pack.Controller.BoardController : content seq : 273 
+2019:06:04 09:16:16.635 DEBUG --- [http-nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:06:04 09:16:16.648 DEBUG --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:16.657 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : GET "/css/buttons.css", parameters={} 
+2019:06:04 09:16:16.658 DEBUG --- [http-nio-8080-exec-2] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler ["classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/", "/"] 
+2019:06:04 09:16:16.661 DEBUG --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:16.683 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : GET "/favicon.ico", parameters={} 
+2019:06:04 09:16:16.684 DEBUG --- [http-nio-8080-exec-3] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler [class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], ServletContext resource [/], class path resource []] 
+2019:06:04 09:16:16.688 DEBUG --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:25.970 DEBUG --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet : GET "/list?page=1&perPageNum=18", parameters={masked} 
+2019:06:04 09:16:25.972 DEBUG --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.gaesipan.pack.Controller.BoardController.list(com.gaesipan.pack.DTO.Criteria,org.springframework.ui.Model) 
+2019:06:04 09:16:25.973 INFO  --- [http-nio-8080-exec-4] c.g.pack.Controller.BoardController : Criteria [page = 1, perPageNum = 18, option = null, search = null] 
+2019:06:04 09:16:25.985 INFO  --- [http-nio-8080-exec-4] c.g.pack.Controller.BoardController : PageMaker [totalCount=275, startPage=1, endPage=10, prev=false, next=true, displayPageNum=10, cri=Criteria [page = 1, perPageNum = 18, option = null, search = null]] 
+2019:06:04 09:16:25.986 DEBUG --- [http-nio-8080-exec-4] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8] 
+2019:06:04 09:16:25.998 DEBUG --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:26.008 DEBUG --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet : GET "/css/buttons.css", parameters={} 
+2019:06:04 09:16:26.009 DEBUG --- [http-nio-8080-exec-5] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler ["classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/", "/"] 
+2019:06:04 09:16:26.011 DEBUG --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 09:16:26.047 DEBUG --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet : GET "/favicon.ico", parameters={} 
+2019:06:04 09:16:26.048 DEBUG --- [http-nio-8080-exec-7] o.s.w.s.h.SimpleUrlHandlerMapping : Mapped to ResourceHttpRequestHandler [class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], ServletContext resource [/], class path resource []] 
+2019:06:04 09:16:26.050 DEBUG --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK 
+2019:06:04 17:30:54.899 INFO  --- [RMI TCP Connection(503)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested. 
+2019:06:04 17:30:54.902 INFO  --- [RMI TCP Connection(503)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor : Shutting down ExecutorService 'applicationTaskExecutor' 
+2019:06:04 17:30:54.902 INFO  --- [RMI TCP Connection(503)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
+2019:06:04 17:30:54.906 INFO  --- [RMI TCP Connection(503)-127.0.0.1] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 

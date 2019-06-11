@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -49,7 +49,7 @@ $(function(){
 </head>
 <body>
 	<table width="620" cellpadding="0" cellspacing="0" border="1">
-		<form id="frm" action="/modify" method="post">
+		<form id="frm" th:action="@{/normal/modify}" method="post">
 			<input type="hidden" name="seq" th:value="${content.seq}">
 			<input type="hidden" name="author" th:value="${content.author}">
 			<input type="hidden" name="page" th:value="${cri.page}">
@@ -68,7 +68,7 @@ $(function(){
 			</tr>
 			<tr>
 				<td> 내용 </td>
-				<td> <textarea id="contents" name="contents" rows="10">[[${content.contents}]]</textarea> </td>
+				<td> <textarea id="contents" name="contents" rows="10" th:utext="${content.contents}"></textarea> </td>
 			</tr>
 			<tr>
 				<td colspan="2"> 

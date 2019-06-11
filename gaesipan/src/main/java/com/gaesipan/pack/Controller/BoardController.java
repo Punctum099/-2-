@@ -100,7 +100,7 @@ public class BoardController {
 		return "write_view";
 	}
 
-	@RequestMapping(value = "/write", method = RequestMethod.POST)
+	@RequestMapping(value = "/normal/write", method = RequestMethod.POST)
 	public String write(@RequestBody @ModelAttribute("dto") BoardDTO dto, Model model){
 
         logger.info("write author : " + dto.getAuthor());
@@ -129,7 +129,7 @@ public class BoardController {
 		return "modify_view";
 	}
 
-	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	@RequestMapping(value = "/normal/modify", method = RequestMethod.POST)
 	public String modify(@ModelAttribute("dto") BoardDTO dto, @RequestParam int page, @RequestParam int perPageNum, Model model){
 
         logger.info("modify seq : " + dto.getSeq());
@@ -146,7 +146,7 @@ public class BoardController {
 		return "content";
 	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	@RequestMapping(value = "/normal/delete", method = RequestMethod.POST)
 	public String delete(@RequestBody @ModelAttribute("bdtoCri") bdtoCri bdtoCri, Model model){
 
         logger.info("delete seq : " + bdtoCri.getSeq());

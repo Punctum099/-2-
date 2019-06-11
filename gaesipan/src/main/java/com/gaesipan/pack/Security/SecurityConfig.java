@@ -18,18 +18,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	//Spring Security의 설정을 구현하는 메소드. 필수 메소드. 더 많은 설정 가능
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+    	
+    	//SE2를 사용하기 위해 프레임 보안옵션을 꺼줬다.
+    	http.headers().frameOptions().sameOrigin();
+    	
     	//인증이 필요하지 않은 경로와 인증이 필요한 경로를 설정
     	//여기서는 순서가 중요. 앞에서부터 검사해서 매칭이 일어나면 바로 규칙이 적용되어 그 뒤의 규칙은 무시되므로 우선순위를 고려하여 순서를 정해야 함 
         http.authorizeRequests()
         		//'/soft/**' 경로와 정적 자원에 대해서는 인증 없이 접근이 가능하도록 완전히 허용
-                .antMatchers("/css/**", "/js/**", "/img/**","/soft/**", "/list").permitAll()
-                
-                //'/hard/**' 경로에 대해서는 "ROLE_ADMIN" 권한이 있어야 접근이 가능
-                .antMatchers("/hard/**").hasRole("ADMIN") // 내부적으로 접두어 "ROLE_"가 붙는다.
+                .antMatchers("/css/**", "/js/**", "/img/**","/soft/**", "/list", "/content", "/login").permitAll()
                 
                 //"/normal/**" 경로에 대해서 ROLE_ADMIN, ROLE_USER 중에 어느 하나라도 권한이 있어야 접근이 가능
                 //위라인의 규칙도 여기에 해당하지만 먼저 선언되어있기 때문에 이 규칙이 우선 적용될 일은 없다.
-                .antMatchers("/normal/**").hasAnyRole("ADMIN", "USER") // 내부적으로 접두어 "ROLE_"가 붙는다.
+                .antMatchers("/normal/**", "/write_view", "/modify_view").hasAnyRole("ADMIN", "USER") // 내부적으로 접두어 "ROLE_"가 붙는다.
+                
+                //'/hard/**' 경로에 대해서는 "ROLE_ADMIN" 권한이 있어야 접근이 가능
+                .antMatchers("/hard/**").hasRole("ADMIN") // 내부적으로 접두어 "ROLE_"가 붙는다.
                 
                 //기타 나머지 요청에 대해서는 인증된 사용자만 접근이 되도록 설정
                 .anyRequest().authenticated();
@@ -66,7 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .logoutUrl("/logout") // default
                 
                 //로그아웃 후에 이동할 경로를 지정
-                .logoutSuccessUrl("/login")
+                .logoutSuccessUrl("/list")
                 
                 //로그아웃 경로의 접근을 완전 허용
                 .permitAll();
