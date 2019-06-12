@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>우리가 만들어가는 웹 페이지!</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 <link href="/css/buttons.css" rel="stylesheet"/>
@@ -47,14 +47,14 @@
 		<tr>
 		<tr th:if="${dto.listType == 'Notice'}" th:each="dto:${list}">
 			<td><b th:text="${dto.seq}">번호</b></td>
-			<td><b><a th:href="@{/content(seq=${dto.seq}, page=${cri.page}, perPageNum=${cri.perPageNum})}" th:text="${dto.title}" class="none" id="Notice">제목</a></b></td>
+			<td><b><a th:href="@{/soft/content(seq=${dto.seq}, page=${cri.page}, perPageNum=${cri.perPageNum})}" th:text="${dto.title}" class="none" id="Notice">제목</a></b></td>
 			<td><b th:text="${dto.author}">글쓴이</b></td>
 			<td><b th:text="${dto.hit}">조회수</b></td>
 			<td><b th:text="${#dates.format(dto.time, 'yyyy-MM-dd')}">게시 시간</b></td>
 		<tr>
 		<tr th:if="${dto.listType == 'Normal'}" th:each="dto:${list}">
 			<td th:text="${dto.seq}">번호</td>
-			<td><a th:href="@{/content(seq=${dto.seq}, page=${cri.page}, perPageNum=${cri.perPageNum})}" th:text="${dto.title}" class="none">제목</a></td>
+			<td><a th:href="@{/soft/content(seq=${dto.seq}, page=${cri.page}, perPageNum=${cri.perPageNum})}" th:text="${dto.title}" class="none">제목</a></td>
 			<td th:text="${dto.author}">글쓴이</td>
 			<td th:text="${dto.hit}">조회수</td>
 			<td th:text="${#dates.format(dto.time, 'yyyy-MM-dd')}">게시 시간</td>
@@ -105,9 +105,13 @@
 		</form>
 		
 		<div class="a" style="margin-top: 5px">
-			<span sec:authorize="hasRole('ROLE_ADMIN')"><input type="button" class="btn btn-primary btn-sm raised" value="공지사항 관리" onClick="location.href='/hard/NoticeList'"></span>
-			<input type="button" class="btn btn-primary btn-sm raised" value="로그인" onClick="location.href='/login'">
-			<input type="button" class="btn btn-primary btn-sm raised" value="홈으로" onClick="location.href='/list'">
+			<form action="#" th:action="@{/logout}" method="post">
+				<input sec:authorize="hasRole('ROLE_ADMIN')" type="button" class="btn btn-primary btn-sm raised" value="공지사항 관리" onClick="location.href='/hard/NoticeList'">
+				<a sec:authorize="!isAuthenticated()" class="btn btn-primary btn-sm raised" th:href="@{/soft/login}">로그인</a>
+				<input sec:authorize="isAuthenticated()" class="btn btn-danger btn-sm raised" type="submit" value="로그아웃" />
+				<input type="button" class="btn btn-primary btn-sm raised" value="홈으로" th:href="@{/list}">
+				<input sec:authorize="isAuthenticated()" type="button" class="btn btn-primary btn-sm raised" value="내 정보" onClick="location.href='/soft/userInfo'">
+			</form>
 		</div>
 
 </div>

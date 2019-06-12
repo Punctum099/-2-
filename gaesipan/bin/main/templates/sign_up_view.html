@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
+<!-- default header name is X-CSRF-TOKEN -->
+<meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>회원가입 페이지</title>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>회원가입 화면</title>
+    <style>
+        #wrap{
+            width:530px;
+            margin-left:auto; 
+            margin-right:auto;
+            text-align:center;
+        }
+        table{
+            border:3px solid skyblue
+        }
+        td{
+            border:1px solid skyblue
+        }
+        #title{
+            background-color:skyblue
+        }
+    </style>
+    <script type="text/javascript">
+
+	var idOverlap = 0;
+	var pwOverlap = 0;
+	var nickOverlap = 0;
+	var emailOverlap = 0;
+	var telOverlap = 0;
+    
+    function Check(){
+
+    	var id = document.f.id.value;
+    	var password = document.f.password.value;
+    	var passwordCheck = document.f.passwordCheck.value;
+    	var name = document.f.name.value;
+    	var nickname = document.f.nickname.value;
+    	var gender = document.f.gender.value;
+    	
+    	var yy = document.getElementById('birth_yy').value;
+    	var mm = document.getElementById('birth_mm').value;
+    	var dd = document.getElementById('birth_dd').value;
+    	var birthday = yy + "-" + mm + "-" + dd;
+    	
+    	var local_email = document.f.local_email.value;
+    	var domain_email = document.f.domain_email.value;
+    	var email = local_email + "@" + domain_email;
+    	
+    	var tel1 = document.getElementById('tel1').value;
+    	var tel2 = document.getElementById('tel2').value;
+    	var tel3 = document.getElementById('tel3').value;
+    	var tel = tel1 + "-" + tel2 + "-" + tel3;
+    	
+    	if(id == ''){
+    		alert("아이디를 입력하지 않았습니다.")
+	        f.id.focus();
+	        return false;
+    	}
+    	
+    	for (var i = 0; i < id.length; i++) {
+            ch = id.charAt(i)
+            if (!(ch >= '0' && ch <= '9') && !(ch >= 'a' && ch <= 'z')&&!(ch >= 'A' && ch <= 'Z')) {
+                alert("아이디는 영문 대소문자, 숫자만 입력가능합니다.")
+                f.id.focus();
+                f.id.select();
+                return false;
+            }
+        }
+    	
+    	if (id.length<4 || id.length>12) {
+            alert("아이디를 4~12자까지 입력해주세요.")
+            document.f.id.focus();
+            document.f.id.select();
+            return false;
+        }
+    	
+    	if (password == "") {
+            alert("비밀번호를 입력하지 않았습니다.")
+            document.f.password.focus();
+            return false;
+        }
+    	
+    	if (passwordCheck == "") {
+            alert("비밀번호 롹인을 입력하지 않았습니다.")
+            document.f.passwordCheck.focus();
+            return false;
+        }
+    	 
+    	if (password == id) {
+             alert("아이디와 비밀번호가 같습니다.")
+             document.f.password.focus();
+             return false;
+         }
+    	
+    	if (name == "") {
+            alert("이름을 입력하지 않았습니다.")
+            document.f.name.focus();
+            return false;
+        }
+    	
+    	if(document.f.name.value.length<2){
+            alert("이름을 2자 이상 입력해주십시오.")
+            document.f.name.focus();
+            return false;
+        }
+    	
+    	if (nickname == "") {
+            alert("별명을 입력하지 않았습니다.")
+            document.f.nickname.focus();
+            return false;
+        }
+    	
+    	if (yy == "" || mm == "" || dd == "") {
+            alert("생년월일을 입력하지 않았습니다.");
+            document.f.birth_yy.focus();
+            return false;
+        }
+    	
+    	if (dd > 32 || dd < 1) {
+            alert("생년월일을 정확히 입력하시기 바랍니다.");
+            document.f.birth_dd.focus();
+            return false;
+        }
+    	
+    	if (!isNumeric(yy) || !isNumeric(mm) || !isNumeric(dd)) {
+            alert("생년월일은 숫자로 입력해주세요.");
+            document.f.birth_yy.value = "";
+            document.f.birth_mm.value = "";
+            document.f.birth_dd.value = "";
+            document.f.birth_yy.focus();
+            return false;
+        }
+    	
+    	if (local_email == "" || domain_email == "") {
+            alert("이메일을 입력하지 않았습니다.")
+            document.mail.focus();
+            return false;
+        }
+    	
+    	if (chkEmail(email) === false) {
+            alert("잘못된 이메일 형식입니다.");
+            document.f.email.value=""
+            document.f.email.focus();
+            return false;
+        }
+    	
+    	if (tel1 == "") {
+            alert("전화번호를 입력하지 않았습니다.");
+            document.f.tel1.focus();
+            return false;
+        }
+    	
+    	if (tel2 == "") {
+            alert("전화번호를 입력하지 않았습니다.");
+            document.f.tel2.focus();
+            return false;
+        }
+    	
+    	if (tel3 == "") {
+            alert("전화번호를 입력하지 않았습니다.");
+            document.f.tel3.focus();
+            return false;
+        }
+    	
+    	if (!isNumeric(tel1) || !isNumeric(tel2) || !isNumeric(tel3)) {
+            alert("전화번호는 숫자로 입력해주세요.");
+            document.f.tel1.value = "";
+            document.f.tel2.value = "";
+            document.f.tel3.value = "";
+            document.f.tel1.focus();
+            return false;
+        }
+    	
+    	pwSame();
+
+    	document.getElementById('birthday').value = birthday;
+    	document.getElementById('tel').value = tel;
+
+    	console.log(idOverlap);
+    	if(idOverlap != 1){
+    		alert("아이디 중복확인을 해주세요.");
+    	}else if(pwOverlap != 1){
+    		alert("비밀번호 중복확인을 해주세요.");
+    	}else if(nickOverlap != 1){
+    		alert("별명 중복확인을 해주세요.");
+    	}else if(emailOverlap != 1){
+    		alert("이메일 중복확인을 해주세요.");
+    	}else if(telOverlap != 1){
+    		alert("전화번호 중복확인을 해주세요.");
+    	}else{
+    		$("#form").submit();
+    	}
+    	
+    }
+    
+    function isNumeric(s) { 
+        for (i=0; i<s.length; i++) { 
+          c = s.substr(i, 1); 
+          if (c < "0" || c > "9") return false; 
+        } 
+        return true; 
+  	}
+    
+    function chkEmail(str) {
+        var regExp = /^[0-9a-zA-Z][-_.0-9a-zA-Z]*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+        if (regExp.test(str)) return true;
+        else return false;
+    }
+    
+    	function pwSame(){
+    		var pw = document.getElementById('pw').value;
+    		var pwCheck = document.getElementById('pwCheck').value;
+    		if(((pw.length < 6 || pw.length > 16) && pw.length != 0) || ((pwCheck.length < 6 || pwCheck.length > 16) && pwCheck.length != 0)){
+    			alert('비밀번호는 6글자 이상, 16글자 이하만 사용하실 수 있습니다.');
+    			document.getElementById('pw').value = document.getElementById('pwCheck').value="";
+    			document.getElementById('pw').focus();
+    			document.getElementById('same').innerHTML="";
+    		}
+    		if(document.getElementById('pw').value != "" && document.getElementById('pwCheck').value != ""){
+    			if(document.getElementById('pw').value == document.getElementById('pwCheck').value){
+    				document.getElementById('same').innerHTML="비밀번호가 일치합니다.";
+    				document.getElementById('same').style.color='blue';
+    			}else{
+    				document.getElementById('same').innerHTML="비밀번호가 일치하지않습니다.";
+    				document.getElementById('same').style.color='red';
+    			}
+    		}
+    		if((document.getElementById('pw').value == "" && document.getElementById('pwCheck').value != "") || (document.getElementById('pw').value != "" && document.getElementById('pwCheck').value == "")){
+    			document.getElementById('same').innerHTML="빈 공간 없이 입력해주시기 바랍니다.";
+    			document.getElementById('same').style.color='blue';
+    		}
+    	}
+    	
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");
+		$(document).ajaxSend(function(e, xhr, options) {
+	        xhr.setRequestHeader(header, token);
+	    });
+    	
+    	function IdOverlapCheck(){
+    		$.ajax({
+                type : 'post',
+                url : '/soft/IdOverlapCheck',
+                data : {
+                	"id" : $("#id").val()
+                }, 
+                dataType : "text", 
+                success : function(data){
+                	if(data == "Availabled"){
+                		if($('#id').val()!=''){
+                        	alert("사용 가능한 아이디입니다.");
+                        	idOverlap = 1;
+                        	console.log(idOverlap);
+                		}
+                	}else{
+                		if($('#id').val()!=''){
+	                		alert("이미 사용중인 아이디입니다.\n다시 입력해주세요.");
+		                	$('#id').val('');
+		                	$('#id').focus();
+                		}
+                	}     
+                	console.log(data);
+                }, 
+                error: function(xhr, status, error){
+                	console.log(status);
+                	console.log("error : " + error);
+                }
+            });
+        }
+    	
+    	function PasswordOverlapCheck(){
+    		$.ajax({
+                type : 'post',
+                url : '/soft/PasswordOverlapCheck',
+                data : {
+                	"pw" : $("#pw").val()
+                }, 
+                dataType : "text", 
+                success : function(data){
+                	if(data == "Availabled"){
+	                	if($('#pw').val()!=''){
+	                    	alert("사용 가능한 비밀번호입니다.");
+	                    	pwOverlap = 1;
+	                    	console.log(pwOverlap);
+                		}
+                	}else{
+	                	if($('#pw').val()!=''){
+	                		alert("이미 사용중인 비밀번호입니다.\n다시 입력해주세요.");
+		                	$('#password').val('');
+		                	$('#password').focus();
+                		}
+                	}     
+                	console.log(data);
+                }, 
+                error: function(xhr, status, error){
+                	console.log(status);
+                	console.log("error : " + error);
+                }
+            });
+        }
+    	
+    	function NicknameOverlapCheck(){
+    		$.ajax({
+                type : 'post',
+                url : '/soft/NicknameOverlapCheck',
+                data : {
+                	"nickname" : $("#nickname").val()
+                }, 
+                dataType : "text", 
+                success : function(data){
+                	if(data == "Availabled"){
+	                	if($('#nickname').val()!=''){
+	                    	alert("사용 가능한 별명입니다.");
+	                    	nickOverlap = 1;
+                		}
+                	}else{
+                		if($('#nickname').val()!=''){
+	                		alert("이미 사용중인 별명입니다.\n다시 입력해주세요.");
+		                	$('#nickname').val('');
+		                	$('#nickname').focus();
+                		}
+                	}     
+                	console.log(data);
+                }, 
+                error: function(xhr, status, error){
+                	console.log(status);
+                	console.log("error : " + error);
+                }
+            });
+        }
+    	
+    	function EmailOverlapCheck(){
+    		$.ajax({
+                type : 'post',
+                url : '/soft/EmailOverlapCheck',
+                data : {
+                	"email" : $("#local_email").val() + "@" + $("#domain_email").val()
+                }, 
+                dataType : "text", 
+                success : function(data){
+                	if(data == "Availabled"){
+                		if(($('#local_email').val()!='') && ($('#domain_email').val()!='')){
+	                    	alert("사용 가능한 이메일입니다.");
+	                    	emailOverlap = 1;
+                		}
+                	}else{
+                		if(($('#local_email').val()!='') && ($('#domain_email').val()!='')){
+	                		alert("이미 존재하는 이메일입니다.\n다시 입력해주세요.");
+		                	$('#local_email').val('');
+		                	$('#domain_email').val('');
+		                	$('#local_email').focus();
+                		}
+                	}     
+                	console.log(data);
+                }, 
+                error: function(xhr, status, error){
+                	console.log(status);
+                	console.log("error : " + error);
+                }
+            });
+        }
+    	
+    	function TelOverlapCheck(){
+    		$.ajax({
+                type : 'post',
+                url : '/soft/TelOverlapCheck',
+                data : {
+                	"tel" : $("#tel").val()
+                }, 
+                dataType : "text", 
+                success : function(data){
+                	if(data == "Availabled"){
+	                	if(($('#tel1').val()!='') && ($('#tel2').val()!='') && ($('#tel3').val()!='')){
+	                    	alert("사용 가능한 전화번호입니다.");
+	                    	telOverlap = 1;
+                		}
+                	}else{
+                		if(($('#tel1').val()!='') && ($('#tel2').val()!='') && ($('#tel3').val()!='')){
+	                		alert("이미 존재하는 전화번호입니다.\n다시 입력해주세요.");
+		                	$('#tel').val('');
+		                	$('#tel').focus();
+                		}
+                	}     
+                	console.log(data);
+                }, 
+                error: function(xhr, status, error){
+                	console.log(status);
+                	console.log("error : " + error);
+                }
+            });
+        }
+    	
+    	function idRetryOverlap(){
+    		idOverlap = 0;
+        	console.log(idOverlap);
+    	}
+    	
+    	function pwRetryOverlap(){
+    		pwOverlap = 0;
+    	}
+    	
+    	function nickRetryOverlap(){
+    		nickOverlap = 0;
+    	}
+    	
+    	function emailRetryOverlap(){
+    		emailOverlap = 0;
+    	}
+    	
+    	function telRetryOverlap(){
+    		telOverlap = 0;
+    	}
+    	
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <br><br>
+        <b><font size="6" color="gray">회원가입</font></b>
+        <br><br><br>
+        
+        <form th:action="@{/soft/sign_up}" method="post" id="form" name="f">
+            <table>
+                <tr>
+                    <td id="title">아이디</td>
+                    <td>
+                        <input type="text" name="id" id="id" maxlength="20" onkeydown="idRetryOverlap();">
+                        <input type="button" value="중복확인" onclick="IdOverlapCheck();">    
+                    </td>
+                </tr>
+                        
+                <tr>
+                    <td id="title">비밀번호</td>
+                    <td>
+                        <input type="password" name="password" id="pw" maxlength="16" onchange="pwSame();" onkeydown="pwRetryOverlap();">
+                        <input type="button" value="중복확인" onclick="PasswordOverlapCheck();">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td id="title">비밀번호 확인</td>
+                    <td>
+                        <input type="password" name="passwordCheck" id="pwCheck" maxlength="16" onchange="pwSame();"> </br> <span id="same"></span>
+                    </td>
+                </tr>
+                    
+                <tr>
+                    <td id="title">이름</td>
+                    <td>
+                        <input type="text" name="name" id="name" maxlength="40">
+                    </td>
+                </tr>
+                    
+                <tr>
+                    <td id="title">별명</td>
+                    <td>
+                        <input type="text" name="nickname" id="nickname" maxlength="40" onkeydown="nickRetryOverlap();">
+                        <input type="button" value="중복확인" onclick="NicknameOverlapCheck();">
+                    </td>
+                </tr>
+                    
+                <tr>
+                    <td id="title">성별</td>
+                    <td>
+                        <input type="radio" name="gender" id="gender" value="남" checked>남
+                        <input type="radio" name="gender" id="gender" value="여">여
+                    </td>
+                </tr>
+                    
+                <tr>
+                    <td id="title">생년월일</td>
+                    <td>
+                        <input type="text" name="birth_yy" id="birth_yy" maxlength="4" placeholder="년(4자)" size="6" >
+                        <select name="birth_mm" id="birth_mm">
+                            <option value="">월</option>
+                            <option value="01" >1</option>
+                            <option value="02" >2</option>
+                            <option value="03" >3</option>
+                            <option value="04" >4</option>
+                            <option value="05" >5</option>
+                            <option value="06" >6</option>
+                            <option value="07" >7</option>
+                            <option value="08" >8</option>
+                            <option value="09" >9</option>
+                            <option value="10" >10</option>
+                            <option value="11" >11</option>
+                            <option value="12" >12</option>
+                        </select>
+                        <input type="text" name="birth_dd" id="birth_dd" maxlength="2" placeholder="일" size="4" >
+                        <input type="hidden" name="birthday" id="birthday">
+                    </td>
+                </tr>
+                    
+                <tr>
+                    <td id="title">이메일</td>
+                    <td>
+                        <input type="text" name="local_email" id="local_email" maxlength="30" onkeydown="emailRetryOverlap();">@
+                        <input type="text" name="domain_email" id="domain_email" maxlength="30" onkeydown="emailRetryOverlap();">
+                        <input type="button" value="중복확인" onclick="EmailOverlapCheck();">
+                    </td>
+                </tr>
+                    
+                <tr>
+                    <td id="title">휴대전화</td>
+                    <td>
+                        <input type="text" id="tel1" name="tel1" maxlength="3" size="4" onkeydown="telRetryOverlap();"/> - 
+                        <input type="text" id="tel2" name="tel2" maxlength="4" size="6" onkeydown="telRetryOverlap();"/> - 
+                        <input type="text" id="tel3" name="tel3" maxlength="4" size="6" onkeydown="telRetryOverlap();"/>
+                        <input type="hidden" name="tel" id="tel">
+                        <input type="button" value="중복확인" onclick="TelOverlapCheck();">
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <input type="button" value="가입" onclick="Check();"/>  
+            <input type="button" value="취소" onClick="location.href='/soft/login'">
+        </form>
+    </div>
+</body>
+</html>

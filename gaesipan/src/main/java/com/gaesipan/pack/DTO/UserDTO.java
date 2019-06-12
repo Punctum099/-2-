@@ -1,7 +1,7 @@
 package com.gaesipan.pack.DTO;
 
 public class UserDTO {
-	private int seq;
+	private String seq;
 	private String id;
 	private String password;
 	private String local_email;
@@ -15,7 +15,7 @@ public class UserDTO {
 	private String goust;
 	private String join_date;
 	
-	public UserDTO(int seq, String id, String password, String local_email, String domain_email, String nickname,
+	public UserDTO(String seq, String id, String password, String local_email, String domain_email, String nickname,
 			String name, String gender, String birthday, String tel, String grade, String goust, String join_date) {
 		this.seq = seq;
 		this.id = id;
@@ -31,10 +31,10 @@ public class UserDTO {
 		this.goust = goust;
 	}
 	
-	public int getSeq() {
+	public String getSeq() {
 		return seq;
 	}
-	public void setSeq(int seq) {
+	public void setSeq(String seq) {
 		this.seq = seq;
 	}
 	public String getId() {

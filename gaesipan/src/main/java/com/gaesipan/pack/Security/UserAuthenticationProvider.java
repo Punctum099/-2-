@@ -56,8 +56,8 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
         ArrayList<SimpleGrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_" + userDTO.getGrade()));
 
-        System.out.println(authorities.get(0));
-        System.out.println("ROLE_" + userDTO.getGrade());
+        //System.out.println(authorities.get(0));
+        //System.out.println("ROLE_" + userDTO.getGrade());
 
         /* Authentication 인터페이스를 구현한 UsernamePasswordAuthenticationToken 클래스를 생성해서 반환
          * 이 클래스는 Spring Security에서 제공되는 클래스인데 대부분의 경우에 사용하기 적당

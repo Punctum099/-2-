@@ -71,7 +71,7 @@ public class BoardController {
 		return "NoticeList";
 	}
 
-	@RequestMapping(value = "/content", method = RequestMethod.GET)
+	@RequestMapping(value = "/soft/content", method = RequestMethod.GET)
 	public String content(@ModelAttribute("cri") Criteria cri, @RequestParam String seq, Model model){
 			
         logger.info(cri.toString());

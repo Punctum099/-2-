@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     	//여기서는 순서가 중요. 앞에서부터 검사해서 매칭이 일어나면 바로 규칙이 적용되어 그 뒤의 규칙은 무시되므로 우선순위를 고려하여 순서를 정해야 함 
         http.authorizeRequests()
         		//'/soft/**' 경로와 정적 자원에 대해서는 인증 없이 접근이 가능하도록 완전히 허용
-                .antMatchers("/css/**", "/js/**", "/img/**","/soft/**", "/list", "/content", "/login").permitAll()
+                .antMatchers("/css/**", "/js/**", "/img/**","/soft/**", "/list").permitAll()
                 
                 //"/normal/**" 경로에 대해서 ROLE_ADMIN, ROLE_USER 중에 어느 하나라도 권한이 있어야 접근이 가능
                 //위라인의 규칙도 여기에 해당하지만 먼저 선언되어있기 때문에 이 규칙이 우선 적용될 일은 없다.
@@ -42,14 +42,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         http.formLogin()
         		//로그인 UI를 제공하는 페이지의 경로를 설정 
         		//여기서 지정된 경로가 Controller에 GET 요청으로 들어옴
-                .loginPage("/login") // default
+                .loginPage("/soft/login") // default
                 
                 //인증을 처리하는 경로를 지정. 즉, 로그인 페이지의 form 태그에서 action 속성에 지정할 URL 
                 //이 경로는 Controller로 들어오는 요청은 아니고 Spring Security에서 요청을 가로채서 인증 루틴을 실행해줌. 
                 .loginProcessingUrl("/authenticate")
                 
                 //인증 실패 시 돌아갈 경로를 설정
-                .failureUrl("/login?error") // default
+                .failureUrl("/soft/login?error") // default
                 
                 //인증이 성공하면 원래 접근하려고 했던 경로로 돌아가는 게 기본 동작
                 //처음부터 로그인 페이지를 요청한 경우라면 돌아갈 경로가 없으므로 이 때는 여기서 지정된 URL로 이동

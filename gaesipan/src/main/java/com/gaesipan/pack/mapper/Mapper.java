@@ -39,5 +39,21 @@ public interface Mapper {
 	public void applyMTtime(bdtoCri bdtoCri);
 
 	public UserDTO authenticate(LoginVO loginVO);
+
+	public int IdOverlapCheck(String id);
+
+	public int PasswordOverlapCheck(String password);
+
+	public int NicknameOverlapCheck(String nickname);
+
+	public int EmailOverlapCheck(String email);
+
+	public int TelOverlapCheck(String tel);
+
+	public void sign_up(UserDTO userDTO);
+
+	public UserDTO userInfo(String seq);
+
+	public void deleteUser(String seq);
 	
 }

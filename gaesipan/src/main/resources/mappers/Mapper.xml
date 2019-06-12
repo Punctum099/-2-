@@ -228,5 +228,103 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			password = #{password} AND
 			goust = 'N';
     </select>
+
+	<select id="userInfo" parameterType="String" resultType="com.gaesipan.pack.DTO.UserDTO">
+		SELECT 
+			* 
+		FROM 
+			Member_TB 
+		WHERE 
+			seq = #{seq} AND
+			goust = 'N';
+    </select>
+
+	<insert id="sign_up" parameterType="com.gaesipan.pack.DTO.UserDTO">
+		INSERT INTO
+			Member_TB (
+				id, 
+				password, 
+				local_email, 
+				domain_email, 
+				nickname, 
+				name, 
+				gender, 
+				birthday, 
+				tel, 
+				join_date
+			)
+			VALUES (
+				#{id},
+				#{password},
+				#{local_email},
+				#{domain_email},
+				#{nickname},
+				#{name},
+				#{gender},
+				#{birthday},
+				#{tel},
+				NOW()
+			);
+    </insert>
+
+	<delete id="deleteUser" parameterType="String">
+		SELECT 
+			* 
+		FROM 
+			Member_TB 
+		WHERE 
+			seq = #{seq} AND
+			goust = 'N';
+    </delete>
+
+	<select id="IdOverlapCheck" parameterType="String" resultType="Integer">
+		SELECT 
+			COUNT(id) 
+		FROM 
+			Member_TB 
+		WHERE 
+			id = #{id} AND
+			goust = 'N';
+    </select>
+
+	<select id="PasswordOverlapCheck" parameterType="String" resultType="Integer">
+		SELECT 
+			COUNT(password) 
+		FROM 
+			Member_TB 
+		WHERE 
+			password = #{password} AND
+			goust = 'N';
+    </select>
+
+	<select id="NicknameOverlapCheck" parameterType="String" resultType="Integer">
+		SELECT 
+			COUNT(nickname) 
+		FROM 
+			Member_TB 
+		WHERE 
+			nickname = #{nickname} AND
+			goust = 'N';
+    </select>
+
+	<select id="EmailOverlapCheck" parameterType="String" resultType="Integer">
+		SELECT 
+			COUNT(CONCAT(local_email, "@", domain_email)) 'email' 
+		FROM 
+			Member_TB 
+		WHERE 
+			CONCAT(local_email, "@", domain_email) = #{email} AND
+			goust = 'N';
+    </select>
+
+	<select id="TelOverlapCheck" parameterType="String" resultType="Integer">
+		SELECT 
+			COUNT(tel) 
+		FROM 
+			Member_TB 
+		WHERE 
+			tel = #{tel} AND
+			goust = 'N';
+    </select>
     
 </mapper>      
