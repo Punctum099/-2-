@@ -267,15 +267,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			);
     </insert>
 
-	<delete id="deleteUser" parameterType="String">
-		SELECT 
-			* 
-		FROM 
+	<update id="updateUser" parameterType="com.gaesipan.pack.DTO.UserDTO">
+		UPDATE 
 			Member_TB 
+		SET 
+			id=#{id}, 
+			password=#{password}, 
+			local_email=#{local_email},
+			domain_email=#{domain_email}
 		WHERE 
-			seq = #{seq} AND
-			goust = 'N';
-    </delete>
+			seq = #{seq} 
+		LIMIT 1
+    </update>
+
+	<update id="deleteUser" parameterType="String">
+		UPDATE 
+			Member_TB 
+		SET 
+			goust='Y' 
+		WHERE 
+			seq = #{seq} 
+		LIMIT 1
+    </update>
 
 	<select id="IdOverlapCheck" parameterType="String" resultType="Integer">
 		SELECT 

@@ -3,6 +3,7 @@ package com.gaesipan.pack.Controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,13 +30,17 @@ public class UserController {
     }
 
 	@GetMapping("/soft/sign_up_view")
-	public String sign_up(Model model){
+	public String sign_up_view(Model model){
 		return "sign_up_view";
 	}
 
 	@GetMapping("/soft/userInfo")
 	public String userInfo(Model model){
 		return "userInfo";
+	}
+	@GetMapping("/normal/updateUser_view")
+	public String updateUser_view(Model model){
+		return "updateUser_view";
 	}
 
 	@PostMapping("/soft/IdOverlapCheck")
@@ -131,19 +136,32 @@ public class UserController {
 	}
 
 	@PostMapping("/normal/updateUser")
-	public String updateUser(@ModelAttribute("userDTO") UserDTO userDTO, Model model){
+	public String updateUser(@ModelAttribute("loginVO") LoginVO loginVO, 
+							 @RequestParam("id") String id,
+							 @RequestParam("password") String password, 
+							 @RequestParam("local_email") String local_email, 
+							 @RequestParam("domain_email") String domain_email, Model model){
 
-		logger.info("userDTO : " + userDTO);
-		logger.info("userDTO.getId() : " + userDTO.getId());
-		logger.info("userDTO.getPassword() : " + userDTO.getPassword());
+		logger.info("id : " + id);
+		logger.info("password : " + password);
+		logger.info("email : " + local_email + "@" + domain_email);
+		
+		UserDTO userDTO = new UserDTO();
+
+		userDTO.setId(id);
+		userDTO.setPassword(password);
+		userDTO.setLocal_email(local_email);
+		userDTO.setDomain_email(domain_email);
 		
 		mapper.updateUser(userDTO);
+		
+		SecurityContextHolder.getContext().getAuthentication().setAuthenticated(false); 
 		
 		return "login";
 	}
 
 	@PostMapping("/normal/deleteUser")
-	public String deleteUser(@RequestParam("seq") String seq, @RequestParam("password") String password, Model model){
+	public String deleteUser(@ModelAttribute("loginVO") LoginVO loginVO, @RequestParam("seq") String seq, @RequestParam("password") String password, Model model){
 
 		logger.info("userSeq : " + seq);
 		logger.info("userPassword : " + password);
@@ -152,7 +170,11 @@ public class UserController {
 		
 		if(userDTO.getPassword().equals(password)) {
 			mapper.deleteUser(seq);
+		}else {
+			return "wrongPassword";
 		}
+		
+		SecurityContextHolder.getContext().getAuthentication().setAuthenticated(false); 
 		
 		return "login";
 	}

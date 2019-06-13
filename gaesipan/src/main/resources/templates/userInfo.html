@@ -2,10 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
-<title>[[${#authentication.principal.nickname}]]</title>
+<title>[[${#authentication.principal.nickname}]]님의 정보</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 <link href="/css/buttons.css" rel="stylesheet"/>
+<script src="//code.jquery.com/jquery.min.js"></script>
 <style type="text/css">
 	.a{
 		text-align: center;
@@ -32,6 +33,11 @@
 		word-break:break-all;
 	}
 </style>
+<script type="text/javascript">
+	function pwCheck(){
+		$("#pwForm").css("display", "block");
+	}
+</script>
 </head>
 <body>
 
@@ -42,10 +48,10 @@
 		</tr>
 		<tr>
 			<td class="wid">이메일</td>
-			<td sec:authentication="principal.local_email">email</td>
+			<td>[[${#authentication.principal.local_email}]]@[[${#authentication.principal.domain_email}]]</td>
 		</tr>
 		<tr>
-			<td class="wid">아이디</td>
+			<td class="wid">닉네임</td>
 			<td sec:authentication="principal.nickname">id</td>
 		</tr>
 		<tr>
@@ -70,9 +76,21 @@
 		</tr>
 		<tr>
 			<td colspan="2" style="text-align: right;">
-				<input type="button" class="btn btn-primary btn-sm raised" value="홈으로" th:href="@{/list}">
-				<input type="button" class="btn btn-primary btn-sm raised" value="내 정보 수정" th:href="@{/normal/updateUser}">
-				<input type="button" class="btn btn-primary btn-sm raised" value="회원 탈퇴" th:href="@{/normal/deleteUser}">
+				<a type="button" class="btn btn-primary btn-sm gradient" th:href="@{/list}">홈으로</a>
+				<a type="button" class="btn btn-primary btn-sm gradient" th:href="@{/normal/updateUser_view}">내 정보 수정</a>
+				<input type="button" class="btn btn-danger btn-sm gradient" value="회원 탈퇴" onclick="pwCheck();">
+			</td>
+		</tr>
+		<tr style="text-align: center;">
+			<td colspan="2">
+				<div id="pwForm" style="display: none;">
+					회원탈퇴를 하시려면 비밀번호를 입력하시기 바랍니다.
+					<form action="#" th:action="@{/normal/deleteUser}" method="post">
+						<input type="hidden" name="seq" th:value="${#authentication.principal.seq}">
+						<input type="password" name="password">
+						<input type="submit" value="탈퇴 확인">
+					</form>
+				</div>
 			</td>
 		</tr>
 	</table>

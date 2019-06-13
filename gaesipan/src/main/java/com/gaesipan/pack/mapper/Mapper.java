@@ -54,6 +54,8 @@ public interface Mapper {
 
 	public UserDTO userInfo(String seq);
 
+	public void updateUser(UserDTO userDTO);
+
 	public void deleteUser(String seq);
 	
 }
