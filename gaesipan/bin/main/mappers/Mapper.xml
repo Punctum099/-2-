@@ -4,7 +4,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
  
 <mapper namespace="com.gaesipan.pack.mapper.Mapper">
-
+    
+    <!-- 게시글 Mapper -->
+    
 	<select id="list" parameterType="com.gaesipan.pack.DTO.Criteria" resultType="com.gaesipan.pack.DTO.BoardDTO">
         SELECT 
         	* 
@@ -125,6 +127,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         	seq = #{seq};
     </update>
 
+
+																																						<!-- 
+		#useGeneratedKeys, keyProperty 옵션
+		사용하는 데이터베이스가 자동생성키를 지원한다면(mySql 같은) 해당옵션을 이용해 결과를 리턴 받을수 있다. 																		-->
 	<insert id="write" useGeneratedKeys="true" keyProperty="seq" parameterType="com.gaesipan.pack.DTO.BoardDTO">
 		INSERT INTO
 			Board_TB (
@@ -150,6 +156,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				#{MTtime, jdbcType=DATE}
 			);
 	</insert>
+
+	<insert id="attachFile" parameterType="com.gaesipan.pack.DTO.FileDTO">
+		INSERT INTO 
+			File_TB (
+				board_seq, 
+				original_file_name, 
+				stored_file_name, 
+				file_size, 
+				del 
+			) 
+			VALUES (
+				#{board_seq}, 
+				#{original_file_name}, 
+				#{stored_file_name}, 
+				#{file_size}, 
+				"N"
+			);
+	</insert>
+
+	<select id="searchFiles" parameterType="String" resultType="com.gaesipan.pack.DTO.FileDTO">
+        SELECT 
+        	seq, 
+			board_seq, 
+			original_file_name, 
+			stored_file_name, 
+			file_size, 
+			ROUND(file_size / 1024, 2) AS file_size_kb, 
+			del
+        FROM 
+        	File_TB 
+        WHERE 
+        	board_seq = #{seq} AND 
+        	del = 'N';
+    </select>
 
 	<update id="modify" useGeneratedKeys="true" keyProperty="seq" parameterType="com.gaesipan.pack.DTO.BoardDTO">
 		UPDATE 
@@ -214,8 +254,71 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
     
     
+    <!--===============================================================================================================================================================-->
+    
+    <!-- 댓글 Mapper -->
+
+	<select id="showComment" parameterType="String" resultType="com.gaesipan.pack.DTO.CommentDTO">
+		SELECT 
+			seq, 
+			board_seq, 
+			group_seq, 
+			level, 
+			contents, 
+			author, 
+			time, 
+			see 
+		FROM 
+			Comment_TB 
+		WHERE 
+			board_seq = #{seq} AND
+			see = 'Y'
+		ORDER BY
+			group_seq, level;
+	</select>
+
+	<select id="maxGroup" parameterType="String" resultType="String">
+		SELECT 
+			MAX(group_seq) + 1
+		FROM 
+			Comment_TB 
+		WHERE 
+			board_seq = #{seq};
+	</select>
+
+	<insert id="commentWrite" parameterType="com.gaesipan.pack.DTO.CommentDTO">
+		INSERT INTO
+			Comment_TB (
+				board_seq,
+				group_seq,
+				level,
+				contents,
+				author,
+				time
+			)
+			VALUES (
+				#{board_seq},
+				#{group_seq},
+				#{level},
+				#{contents},
+				#{author},
+				NOW()
+			);
+	</insert>
+
+	<update id="commentDelete" parameterType="String">
+        UPDATE 
+        	Comment_TB 
+        SET 
+        	see = 'N' 
+        WHERE 
+        	seq = #{seq};
+    </update>
     
     
+    <!--===============================================================================================================================================================-->
+    
+    <!-- 회원 Mapper -->
     
 
 	<select id="authenticate" parameterType="com.gaesipan.pack.DTO.LoginVO" resultType="com.gaesipan.pack.DTO.UserDTO">

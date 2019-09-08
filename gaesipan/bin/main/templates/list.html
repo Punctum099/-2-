@@ -116,17 +116,18 @@
 
 </div>
 
-
+<!-- 
 <div sec:authorize="isAuthenticated()">
-	<span th:text="${#authentication.principal.nickname}"></span><br />
-  Name: <span sec:authentication="name">SomeName</span><br /><!-- userDTO.toString() -->
-  Principal: <span sec:authentication="principal">PrincipalString</span><br /><!-- userDTO -->
+<span th:text="${#authentication.principal.nickname}"></span><br />
+  Name: <span sec:authentication="name">SomeName</span><br />
+  Principal: <span sec:authentication="principal">PrincipalString</span><br />
   Principal.id: <span sec:authentication="principal.id">id</span><br />
   Principal.nickname: <span sec:authentication="principal.nickname">nickname</span><br />
   HasRole(USER): <span sec:authorize="hasRole('ROLE_USER')">YES</span><br />
   HasRole(USER): <span sec:authorize="principal.id=='qwer'">YES</span><br />
   HasRole(ADMIN): <span sec:authorize="hasRole('ROLE_ADMIN')">YES</span><br />
 </div>
-	
+ -->
+ 	
 </body>
 </html>

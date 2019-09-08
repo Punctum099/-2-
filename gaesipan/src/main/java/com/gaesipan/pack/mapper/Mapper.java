@@ -2,11 +2,13 @@ package com.gaesipan.pack.mapper;
 
 import java.util.List;
 
-import com.gaesipan.pack.DTO.Criteria;
-import com.gaesipan.pack.DTO.LoginVO;
 import com.gaesipan.pack.DTO.BoardDTO;
-import com.gaesipan.pack.DTO.bdtoCri;
+import com.gaesipan.pack.DTO.CommentDTO;
+import com.gaesipan.pack.DTO.Criteria;
+import com.gaesipan.pack.DTO.FileDTO;
+import com.gaesipan.pack.DTO.LoginVO;
 import com.gaesipan.pack.DTO.UserDTO;
+import com.gaesipan.pack.DTO.bdtoCri;
 
 public interface Mapper {
 	
@@ -31,6 +33,10 @@ public interface Mapper {
 	public void modify(BoardDTO dto);
 	
 	public void delete(bdtoCri bdtoCri);
+	
+	public void attachFile(FileDTO fileDTO);
+
+	public List<FileDTO> searchFiles(String seq);
 
 	public List<BoardDTO> nextPrev(String seq);
 
@@ -57,5 +63,15 @@ public interface Mapper {
 	public void updateUser(UserDTO userDTO);
 
 	public void deleteUser(String seq);
+
+	public float fileSizeKb(int seq);
+
+	public List<CommentDTO> showComment(String seq);
+
+	public String maxGroup(String seq);
+
+	public void commentWrite(CommentDTO dto);
+
+	public void commentDelete(String seq);
 	
 }

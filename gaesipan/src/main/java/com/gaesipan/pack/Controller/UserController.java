@@ -132,6 +132,13 @@ public class UserController {
 		
 		mapper.sign_up(userDTO);
 		
+		LoginVO loginVO = new LoginVO();
+
+		loginVO.setId(userDTO.getId());
+		loginVO.setPassword(userDTO.getPassword());
+		
+		model.addAttribute("loginVO", loginVO);
+		
 		return "login";
 	}
 

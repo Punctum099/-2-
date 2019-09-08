@@ -56,7 +56,6 @@
 				$("#" + currentValue.seq).val("N");
 			}
 		});
-		console.log(data); 
 		$("#frm").submit();
 	}
 
@@ -77,14 +76,14 @@
 			<td>게시 유지일</td>
 			<td>표시 여부</td>
 		</tr>
-		<form action="/hard/applyMTtime" method="post" id="frm">
+		<form th:action="@{/hard/applyMTtime}" method="post" id="frm">
 			<input type="hidden" name="page" th:value="${cri.page}">
 			<input type="hidden" name="perPageNum" th:value="${cri.perPageNum}">
 			<tr th:if="${dto.listType == 'Notice'}" th:each="dto:${list}">
 			<input type="hidden" name="see" th:id="${dto.seq}">
 			<input type="hidden" name="seq" th:value="${dto.seq}">
 				<td th:text="${dto.seq}">번호</td>
-				<td><a th:href="@{/content(seq=${dto.seq}, page=${cri.page}, perPageNum=${cri.perPageNum})}" th:text="${dto.title}" class="none">제목</a></td>
+				<td><a th:href="@{/soft/content(seq=${dto.seq}, page=${cri.page}, perPageNum=${cri.perPageNum})}" th:text="${dto.title}" class="none">제목</a></td>
 				<td th:text="${dto.author}">글쓴이</td>
 				<td th:text="${dto.hit}">조회수</td>
 				<td th:text="${#dates.format(dto.time, 'yyyy-MM-dd')}">게시 시간</td>
@@ -97,11 +96,11 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="7" style="text-align: right;"><input type="button" value="표시 여부 적용" onclick="Radio_Checked()" class="btn btn-sm btn-success"></td>
+				<td colspan="7" style="text-align: right;" th:unless="${#strings.isEmpty(list)}"><input type="button" value="표시 여부 적용" onclick="Radio_Checked()" class="btn btn-sm btn-success"></td>
 			</tr>
 		</form>
-		<tr th:if="${list == NULL || list == '' || list == 'empty'}">
-			<td colspan=5>공지사항이 없습니다.</td>
+		<tr th:if="${#strings.isEmpty(list)}">
+			<td colspan="7">공지사항이 없습니다.</td>
 		</tr>
 	</table>
 	
@@ -146,9 +145,11 @@
 		</form>
 		
 		<div class="a" style="margin-top: 5px">
-			<input type="button" class="btn btn-primary btn-sm raised" value="공지사항 관리" onClick="location.href='/hard/NoticeList'" disabled="true">
-			<input type="button" class="btn btn-primary btn-sm raised" value="로그인" onClick="location.href='/login'">
-			<input type="button" class="btn btn-primary btn-sm raised" value="홈으로" onClick="location.href='/list'">
+			<form action="#" th:action="@{/logout}" method="post">
+				<input type="button" class="btn btn-primary btn-sm raised" value="공지사항 관리" onClick="location.href='/hard/NoticeList'" disabled="true">
+				<input class="btn btn-danger btn-sm raised" type="submit" value="로그아웃" />
+				<input type="button" class="btn btn-primary btn-sm raised" value="홈으로" onClick="location.href='/list'">
+			</form>
 		</div>
 
 </div>
